@@ -1,0 +1,14 @@
+{
+  "name": "@cityssm/userscripts",
+  "version": "1.0.0",
+  "description": "Web browser userscripts to help with common irks in our applications.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "eslint-config-cityssm": "^1.7.0"
+  }
+}

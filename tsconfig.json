@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "target": "ES6",
+    "declaration": true,
+    "noImplicitAny": false,
+    "allowUnreachableCode": false,
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "strictNullChecks": true
+  },
+  "compileOnSave": true,
+  "buildOnSave": true,
+  "exclude": ["node_modules/*"]
+}
