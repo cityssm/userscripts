@@ -10,22 +10,28 @@
 // @downloadURL  https://raw.githubusercontent.com/cityssm/userscripts/main/fasterWeb/domainLinks.user.js
 // @supportURL   https://github.com/cityssm/userscripts/tree/main/fasterWeb
 // @homepageURL  https://github.com/cityssm/userscripts
+// @icon         https://cityssm.github.io/img/header-cityssm.png
 // ==/UserScript==
 ;
 (() => {
-    const assetsDomainLink = document.querySelector('#ctl00_DomainMenu_RadMenuDomain a[href$="/Assets/Default.aspx"]');
-    if (assetsDomainLink) {
-        assetsDomainLink.href =
-            assetsDomainLink.href.slice(0, -12) + 'SelectAsset/Default.aspx';
-    }
-    const inventoryDomainLink = document.querySelector('#ctl00_DomainMenu_RadMenuDomain a[href$="/Parts/Default.aspx"]');
-    if (inventoryDomainLink) {
-        inventoryDomainLink.href =
-            inventoryDomainLink.href.slice(0, -12) + 'PartList/Default.aspx';
-    }
-    const accountingDomainLink = document.querySelector('#ctl00_DomainMenu_RadMenuDomain a[href$="/Accounting/Default.aspx"]');
-    if (accountingDomainLink) {
-        accountingDomainLink.href =
-            accountingDomainLink.href.slice(0, -12) + 'Search/Default.aspx';
+    const domainLinksToUpdate = [
+        [
+            '#ctl00_DomainMenu_RadMenuDomain a[href$="/Assets/Default.aspx"]',
+            'SelectAsset/Default.aspx'
+        ],
+        [
+            '#ctl00_DomainMenu_RadMenuDomain a[href$="/Parts/Default.aspx"]',
+            'PartList/Default.aspx'
+        ],
+        [
+            '#ctl00_DomainMenu_RadMenuDomain a[href$="/Accounting/Default.aspx"]',
+            'Search/Default.aspx'
+        ]
+    ];
+    for (const domainLinkToUpdate of domainLinksToUpdate) {
+        const domainLink = document.querySelector(domainLinkToUpdate[0]);
+        if (domainLink !== null) {
+            domainLink.href = domainLink.href.slice(0, -12) + domainLinkToUpdate[1];
+        }
     }
 })();
