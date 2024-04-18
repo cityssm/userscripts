@@ -1,12 +1,15 @@
 // ==UserScript==
-// @name        FASTER Web - Domain Tabs
-// @namespace   https://github.com/cityssm/userscripts
-// @match       https://*.fasterwebcloud.com/FASTER/*
-// @grant       none
-// @version     1.0
-// @author      The Corporation of the City of Sault Ste. Marie
-// @description Updates domain tabs to default to more useful pages.
-// @run-at      document-end
+// @name         FASTER Web - Domain Tabs
+// @namespace    https://github.com/cityssm/userscripts
+// @match        https://*.fasterwebcloud.com/FASTER/*
+// @grant        none
+// @version      1.0
+// @author       The Corporation of the City of Sault Ste. Marie
+// @description  Updates domain tabs to default to more useful pages.
+// @run-at       document-end
+// @downloadURL  https://raw.githubusercontent.com/cityssm/userscripts/main/fasterWeb/domainLinks.user.js
+// @supportURL   https://github.com/cityssm/userscripts/tree/main/fasterWeb
+// @homepageURL  https://github.com/cityssm/userscripts
 // ==/UserScript==
 
 ;(() => {
