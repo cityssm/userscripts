@@ -8,8 +8,8 @@
 // @description  Updates domain tabs to default to more useful pages.
 // @run-at       document-end
 // @downloadURL  https://raw.githubusercontent.com/cityssm/userscripts/main/fasterWeb/domainLinks.user.js
-// @supportURL   https://github.com/cityssm/userscripts/tree/main/fasterWeb
-// @homepageURL  https://github.com/cityssm/userscripts
+// @supportURL   https://github.com/cityssm/userscripts/issues
+// @homepageURL  https://cityssm.github.io/userscripts/
 // @icon         https://cityssm.github.io/img/header-cityssm.png
 // ==/UserScript==
 
