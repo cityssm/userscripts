@@ -17,6 +17,9 @@ It can be used to track assets, maintenance on those assets, and parts inventory
 📜 [Domain Tabs](https://github.com/cityssm/userscripts/raw/main/fasterWeb/domainLinks.user.js)<br />
 Updates domain tabs to default to more useful pages.
 
+📜 [Horizontal Menu Separators](https://github.com/cityssm/userscripts/raw/main/fasterWeb/horizontalMenuSeparator.user.js)<br />
+Replaces the thick block separator with a thin black line.
+
 ### Home
 
 📜 [Home - Link to Userscripts](https://github.com/cityssm/userscripts/raw/main/fasterWeb/homeLinkToUserscripts.user.js)<br />
