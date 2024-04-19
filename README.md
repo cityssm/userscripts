@@ -13,3 +13,6 @@ They will likely work with other userscript extensions, like Greasemonkey, Tampe
 
 📜 [Domain Tabs](https://github.com/cityssm/userscripts/raw/main/fasterWeb/domainLinks.user.js)<br />
 Updates domain tabs to default to more useful pages.
+
+📜 [Home - Link to Userscripts](https://github.com/cityssm/userscripts/raw/main/fasterWeb/domainLinks.user.js)<br />
+Updates domain tabs to default to more useful pages.

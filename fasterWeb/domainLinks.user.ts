@@ -3,7 +3,7 @@
 // @namespace    https://github.com/cityssm/userscripts
 // @match        https://*.fasterwebcloud.com/FASTER/*
 // @grant        none
-// @version      1.0
+// @version      1.0.0
 // @author       The Corporation of the City of Sault Ste. Marie
 // @description  Updates domain tabs to default to more useful pages.
 // @run-at       document-end
