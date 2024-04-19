@@ -11,8 +11,17 @@ They will likely work with other userscript extensions, like Greasemonkey, Tampe
 
 [FASTER Web](https://fasterasset.com/products/fleet-management-software/) is fleet management software.
 
+### All Sections
+
 📜 [Domain Tabs](https://github.com/cityssm/userscripts/raw/main/fasterWeb/domainLinks.user.js)<br />
 Updates domain tabs to default to more useful pages.
 
+### Home
+
 📜 [Home - Link to Userscripts](https://github.com/cityssm/userscripts/raw/main/fasterWeb/homeLinkToUserscripts.user.js)<br />
 Adds a link to the City's Userscripts page to the Actions menu.
+
+### Maintenance
+
+📜 [Maintenance - Work Order Header Height](https://github.com/cityssm/userscripts/raw/main/fasterWeb/workOrderHeaderHeight.user.js)<br />
+Stops the header from changing sizes between work order tabs.
