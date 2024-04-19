@@ -25,3 +25,8 @@ Adds a link to the City's Userscripts page to the Actions menu.
 
 📜 [Maintenance - Work Order Header Height](https://github.com/cityssm/userscripts/raw/main/fasterWeb/workOrderHeaderHeight.user.js)<br />
 Stops the header from changing sizes between work order tabs.
+
+### Reports
+
+📜 [Reports - Remove "Basic Print"](https://github.com/cityssm/userscripts/raw/main/fasterWeb/reportHideBasicPrint.user.js)<br />
+Removes the unsupported "Basic Print" button.
