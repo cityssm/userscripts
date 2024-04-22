@@ -3,7 +3,7 @@
 // @namespace    https://github.com/cityssm/userscripts
 // @match        https://*.fasterwebcloud.com/FASTER/*
 // @grant        none
-// @version      1.0.0
+// @version      1.0.1
 // @author       The Corporation of the City of Sault Ste. Marie
 // @description  Improves print-friendliness by only printing the content area.
 // @run-at       document-end
@@ -68,8 +68,7 @@
           #RAD_SPLITTER_PANE_CONTENT_ctl00_ContentPlaceHolder_Content_NotesRadPane,
           #RAD_SPLITTER_PANE_CONTENT_ctl00_ContentPlaceHolder_Content_DowntimeRadPane,
           #RAD_SPLITTER_PANE_CONTENT_ctl00_ContentPlaceHolder_Content_ContactDetailTopRadPane,
-          #RAD_SPLITTER_PANE_CONTENT_ctl00_ContentPlaceHolder_Content_ContactDetailBottomRadPane
-           {
+          #RAD_SPLITTER_PANE_CONTENT_ctl00_ContentPlaceHolder_Content_ContactDetailBottomRadPane {
             overflow: visible !important;
             width: 100% !important;
             height: auto !important;
