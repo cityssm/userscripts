@@ -20,6 +20,9 @@ Updates domain tabs to default to more useful pages.
 📜 [Horizontal Menu Separators](https://github.com/cityssm/userscripts/raw/main/fasterWeb/horizontalMenuSeparator.user.js)<br />
 Replaces the thick block separator with a thin black line.
 
+📜 [Print Friendly](https://github.com/cityssm/userscripts/raw/main/fasterWeb/printFriendly.user.js)<br />
+Improves print-friendliness by only printing the content area.
+
 ### Home
 
 📜 [Home - Link to Userscripts](https://github.com/cityssm/userscripts/raw/main/fasterWeb/homeLinkToUserscripts.user.js)<br />
