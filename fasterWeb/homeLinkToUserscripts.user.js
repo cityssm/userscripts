@@ -1,9 +1,9 @@
 // ==UserScript==
 // @name         FASTER Web - Home - Link to Userscripts
 // @namespace    https://github.com/cityssm/userscripts
-// @match        https://*.fasterwebcloud.com/FASTER/Domains/Home/Default.aspx
+// @match        https://*.fasterwebcloud.com/FASTER/Domains/Home/*.aspx
 // @grant        none
-// @version      1.0.0
+// @version      1.0.1
 // @author       The Corporation of the City of Sault Ste. Marie
 // @description  Adds a link to the City's Userscripts page to the Actions menu.
 // @run-at       document-end
