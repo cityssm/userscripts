@@ -3,7 +3,7 @@
 // @namespace    https://github.com/cityssm/userscripts
 // @match        https://*.fasterwebcloud.com/FASTER/*
 // @grant        none
-// @version      1.0.0
+// @version      1.0.1
 // @author       The Corporation of the City of Sault Ste. Marie
 // @description  Replaces the thick block separator with a thin black line.
 // @run-at       document-end
@@ -13,13 +13,15 @@
 // @icon         https://cityssm.github.io/img/header-cityssm.png
 // ==/UserScript==
 
-const menuSeparatorElements = document.querySelectorAll(
-  '.RadMenu .rmHorizontal .rmItem.rmSeparator'
-) as NodeListOf<HTMLElement>
+;(() => {
+  const menuSeparatorElements = document.querySelectorAll(
+    '.RadMenu .rmHorizontal .rmItem.rmSeparator'
+  ) as NodeListOf<HTMLElement>
 
-for (const menuSeparatorElement of menuSeparatorElements) {
-  menuSeparatorElement.role = 'presentation'
-  menuSeparatorElement.textContent = '|'
-  menuSeparatorElement.style.padding = '0 5px'
-  menuSeparatorElement.classList.remove('rmSeparator')
-}
+  for (const menuSeparatorElement of menuSeparatorElements) {
+    menuSeparatorElement.role = 'presentation'
+    menuSeparatorElement.textContent = '|'
+    menuSeparatorElement.style.padding = '0 5px'
+    menuSeparatorElement.classList.remove('rmSeparator')
+  }
+})()
