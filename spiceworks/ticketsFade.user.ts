@@ -1,10 +1,12 @@
 // ==UserScript==
 // @name         Spiceworks - Tickets - Fade Ticket List
 // @namespace    https://github.com/cityssm/userscripts
+// @match        https://on.spiceworks.com/tickets
 // @match        https://on.spiceworks.com/tickets/*
+// @match        https://*.on.spiceworks.com/tickets
 // @match        https://*.on.spiceworks.com/tickets/*
 // @grant        none
-// @version      1.0.0
+// @version      1.0.1
 // @author       The Corporation of the City of Sault Ste. Marie
 // @description  Reduces the visiblity of the ticket list when viewing a ticket.
 // @run-at       document-end
