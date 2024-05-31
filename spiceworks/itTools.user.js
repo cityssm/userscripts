@@ -3,7 +3,7 @@
 // @namespace    https://github.com/cityssm/userscripts
 // @match        https://*.spiceworks.com/*
 // @grant        none
-// @version      0.1.0
+// @version      1.0.0
 // @author       The Corporation of the City of Sault Ste. Marie
 // @description  Replaces the "IT Tools" marketing links with links to the actual tools.
 // @run-at       document-end
@@ -15,8 +15,9 @@
 ;
 (() => {
     const navbarElementSelector = '.lean-navbar, header.d-header';
+    let maxRetryCount = 10;
+    const retryMillis = 1000;
     function applyMenuChanges(navbarElement) {
-        console.log('Applying changes');
         const cloudHelpDeskElement = navbarElement.querySelector('a[href*="spiceworks.com/free-cloud-help-desk"]');
         if (cloudHelpDeskElement !== null) {
             ;
@@ -36,8 +37,6 @@
                 'https://apps.spiceworks.com/tools/connectivity-dashboard';
         }
     }
-    let maxRetryCount = 10;
-    const retryMillis = 1000;
     function lookForMenu() {
         const navbarElement = document.querySelector(navbarElementSelector);
         if (navbarElement === null) {
