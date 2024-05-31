@@ -5,8 +5,9 @@
 // @match        https://on.spiceworks.com/tickets/*
 // @match        https://*.on.spiceworks.com/tickets
 // @match        https://*.on.spiceworks.com/tickets/*
+// @match        https://on.spiceworks.com/registrations/new
 // @grant        none
-// @version      1.0.1
+// @version      1.0.2
 // @author       The Corporation of the City of Sault Ste. Marie
 // @description  Reduces the visiblity of the ticket list when viewing a ticket.
 // @run-at       document-end
