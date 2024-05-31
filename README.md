@@ -44,5 +44,5 @@ Removes the unsupported "Basic Print" button.
 
 ### All Sections
 
-📜 [IT Tools Menu Links](https://github.com/cityssm/userscripts/raw/main/spiceworks/itTools.user.js)
+📜 [IT Tools Menu Links](https://github.com/cityssm/userscripts/raw/main/spiceworks/itTools.user.js)<br />
 Replaces the "IT Tools" marketing links with links to the actual tools.
