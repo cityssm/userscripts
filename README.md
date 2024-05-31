@@ -37,3 +37,12 @@ Stops the header from changing sizes between work order tabs.
 
 📜 [Reports - Remove "Basic Print"](https://github.com/cityssm/userscripts/raw/main/fasterWeb/reportHideBasicPrint.user.js)<br />
 Removes the unsupported "Basic Print" button.
+
+## Userscripts for Spiceworks
+
+[Spiceworks](https://www.spiceworks.com/free-cloud-help-desk-software/) is a cloud based IT helpdesk application.
+
+### All Sections
+
+📜 [IT Tools Menu Links](https://github.com/cityssm/userscripts/raw/main/spiceworks/itTools.user.js)
+Replaces the "IT Tools" marketing links with links to the actual tools.
