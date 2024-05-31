@@ -3,7 +3,7 @@
 // @namespace    https://github.com/cityssm/userscripts
 // @match        https://*.spiceworks.com/*
 // @grant        none
-// @version      1.0.0
+// @version      1.0.1
 // @author       The Corporation of the City of Sault Ste. Marie
 // @description  Replaces the "IT Tools" marketing links with links to the actual tools.
 // @run-at       document-end
@@ -22,19 +22,19 @@
         if (cloudHelpDeskElement !== null) {
             ;
             cloudHelpDeskElement.href =
-                'https://on.spiceworks.com/tickets';
+                'https://on.spiceworks.com/tickets/';
         }
         const inventoryElement = navbarElement.querySelector('a[href*="spiceworks.com/free-pc-network-inventory"]');
         if (inventoryElement !== null) {
             ;
             inventoryElement.href =
-                'https://apps.spiceworks.com/tools/device-inventory';
+                'https://apps.spiceworks.com/tools/device-inventory/';
         }
         const connectivityElement = navbarElement.querySelector('a[href*="spiceworks.com/free-network-troubleshooting"]');
         if (connectivityElement !== null) {
             ;
             connectivityElement.href =
-                'https://apps.spiceworks.com/tools/connectivity-dashboard';
+                'https://apps.spiceworks.com/tools/connectivity-dashboard/';
         }
     }
     function lookForMenu() {
