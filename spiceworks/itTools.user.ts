@@ -3,7 +3,7 @@
 // @namespace    https://github.com/cityssm/userscripts
 // @match        https://*.spiceworks.com/*
 // @grant        none
-// @version      1.0.1
+// @version      1.1.0
 // @author       The Corporation of the City of Sault Ste. Marie
 // @description  Replaces the "IT Tools" marketing links with links to the actual tools.
 // @run-at       document-end
@@ -18,6 +18,8 @@
 
   let maxRetryCount = 10
   const retryMillis = 1000
+
+  let observer: MutationObserver | undefined
 
   function applyMenuChanges(navbarElement: HTMLElement): void {
     const cloudHelpDeskElement = navbarElement.querySelector(
@@ -55,8 +57,27 @@
       }
     } else {
       applyMenuChanges(navbarElement as HTMLElement)
+
+      observer = new MutationObserver(resetAndRetry)
+      observer.observe(navbarElement, {
+        attributes: true,
+        childList: true,
+        subtree: true
+      })
     }
   }
+
+  function resetAndRetry(): void {
+    maxRetryCount = 10
+
+    if (observer !== undefined) {
+      observer.disconnect()
+    }
+
+    lookForMenu()
+  }
+
+  addEventListener('popstate', resetAndRetry)
 
   lookForMenu()
 })()

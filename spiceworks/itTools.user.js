@@ -3,7 +3,7 @@
 // @namespace    https://github.com/cityssm/userscripts
 // @match        https://*.spiceworks.com/*
 // @grant        none
-// @version      1.0.1
+// @version      1.1.0
 // @author       The Corporation of the City of Sault Ste. Marie
 // @description  Replaces the "IT Tools" marketing links with links to the actual tools.
 // @run-at       document-end
@@ -17,6 +17,7 @@
     const navbarElementSelector = '.lean-navbar, header.d-header';
     let maxRetryCount = 10;
     const retryMillis = 1000;
+    let observer;
     function applyMenuChanges(navbarElement) {
         const cloudHelpDeskElement = navbarElement.querySelector('a[href*="spiceworks.com/free-cloud-help-desk"]');
         if (cloudHelpDeskElement !== null) {
@@ -47,7 +48,21 @@
         }
         else {
             applyMenuChanges(navbarElement);
+            observer = new MutationObserver(resetAndRetry);
+            observer.observe(navbarElement, {
+                attributes: true,
+                childList: true,
+                subtree: true
+            });
         }
     }
+    function resetAndRetry() {
+        maxRetryCount = 10;
+        if (observer !== undefined) {
+            observer.disconnect();
+        }
+        lookForMenu();
+    }
+    addEventListener('popstate', resetAndRetry);
     lookForMenu();
 })();
