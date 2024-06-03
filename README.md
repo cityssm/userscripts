@@ -54,3 +54,8 @@ Reduces the visiblity of the ticket list when viewing a ticket.
 
 📜 [Help Desk - Remove Unused Sidebar Tools](https://github.com/cityssm/userscripts/raw/main/spiceworks/helpdeskSidebar.user.js)<br />
 Adds menu options to remove unused tools from the help desk sidebar.
+
+### Help Desk / Knowledge Base
+
+📜 [Knowledge Base - Remove "New Article" Button for Managers](https://github.com/cityssm/userscripts/raw/main/spiceworks/knowledgeBaseAdd.user.js)<br />
+Removes the "New Article" button for manager users, since it's not supported anyways.
