@@ -3,13 +3,13 @@
 // @namespace    https://github.com/cityssm/userscripts
 // @match        https://on.spiceworks.com/*
 // @match        https://*.on.spiceworks.com/*
-// @match        https://apps.spiceworks.com/tools/*
 // @grant        GM_getValue
 // @grant        GM_setValue
 // @grant        GM_deleteValue
+// @grant        GM_registerMenuCommand
 // @version      0.1.0
 // @author       The Corporation of the City of Sault Ste. Marie
-// @description  Detects unused tools (after first click), and removes them from the help desk sidebar.
+// @description  Adds menu options to remove unused tools from the help desk sidebar.
 // @run-at       document-end
 // @downloadURL  https://raw.githubusercontent.com/cityssm/userscripts/main/spiceworks/helpdeskSidebar.user.js
 // @supportURL   https://github.com/cityssm/userscripts/issues
@@ -19,27 +19,51 @@
 
 ;(() => {
   /*
+   * Device / Software Inventory
+   */
+
+  const hideInventoryStorageKey = 'spiceworks_hideInventory'
+
+  const hideInventory = GM_getValue(hideInventoryStorageKey, false) as boolean
+
+  if (hideInventory) {
+    document
+      .querySelector(
+        '.chd-tools-nav-container a[href^="https://apps.spiceworks.com/tools/device-inventory"]'
+      )
+      ?.remove()
+
+    document
+      .querySelector(
+        '.chd-tools-nav-container a[href^="https://apps.spiceworks.com/tools/device-inventory/software"]'
+      )
+      ?.remove()
+  } else {
+    GM_registerMenuCommand('Hide Device/Software Inventory', () => {
+      GM_setValue(hideInventoryStorageKey, true)
+      alert('The inventory sidebar items will be hidden on refresh.')
+    })
+  }
+
+  /*
    * Contracts
    */
 
   const hideContractsStorageKey = 'spiceworks_hideContracts'
 
-  const hideContracts = GM_getValue(hideContractsStorageKey) as
-    | boolean
-    | undefined
+  const hideContracts = GM_getValue(hideContractsStorageKey, false) as boolean
 
-  if (hideContracts !== undefined && hideContracts) {
+  if (hideContracts) {
     document
       .querySelector(
         '.chd-tools-nav-container a[href^="https://apps.spiceworks.com/tools/contracts"]'
       )
       ?.remove()
-  } else if (
-    hideContracts === undefined &&
-    window.location.href ===
-      'https://apps.spiceworks.com/tools/contracts/registration'
-  ) {
-    GM_setValue(hideContractsStorageKey, true)
+  } else {
+    GM_registerMenuCommand('Hide Contracts', () => {
+      GM_setValue(hideContractsStorageKey, true)
+      alert('The contracts sidebar item will be hidden on refresh.')
+    })
   }
 
   /*
@@ -48,52 +72,35 @@
 
   const hideConnectivityStorageKey = 'spiceworks_hideConnectivity'
 
-  const hideConnectivity = GM_getValue(hideConnectivityStorageKey) as
-    | boolean
-    | undefined
+  const hideConnectivity = GM_getValue(
+    hideConnectivityStorageKey,
+    false
+  ) as boolean
 
-  if (hideConnectivity !== undefined && hideConnectivity) {
+  if (hideConnectivity) {
     document
       .querySelector(
         '.chd-tools-nav-container a[href^="https://apps.spiceworks.com/tools/connectivity-dashboard"]'
       )
       ?.remove()
-  } else if (
-    hideConnectivity === undefined &&
-    window.location.href ===
-      'https://apps.spiceworks.com/tools/connectivity-dashboard/registration'
-  ) {
-    GM_setValue(hideConnectivityStorageKey, true)
+  } else {
+    GM_registerMenuCommand('Hide Connectivity Dashboard', () => {
+      GM_setValue(hideConnectivityStorageKey, true)
+      alert(
+        'The connectivity dashboard sidebar item will be hidden on refresh.'
+      )
+    })
   }
 
   /*
-   * Settings (Restore Hidden)
+   * Restore Hidden Tools
    */
 
-  function clearHideSettings(): void {
+  GM_registerMenuCommand('Restore Hidden Sidebar Items', () => {
     GM_deleteValue(hideContractsStorageKey)
     GM_deleteValue(hideConnectivityStorageKey)
+    GM_deleteValue(hideInventoryStorageKey)
 
     alert('The hidden sidebar items will be restored on refresh.')
-  }
-
-  if (window.location.href.includes('spiceworks.com/settings/my-settings')) {
-    document
-      .querySelector('.settings-app-section .tw-divide-dotted')
-      ?.insertAdjacentHTML(
-        'beforeend',
-        `<div class="row tw-flex tw-items-center tw-px-3 no-gutters">
-          <div class="tw-w-5/12"></div>
-          <div class="tw-w-7/12">
-            <button id="cityssm_restoreSidebar" class="chd-btn-dusk tw-flex dark:tw-bg-dusk-200 dark:tw-text-earl-900">
-              <span class="tw-ml-2 tw-hidden tw-whitespace-nowrap lg:tw-block">Restore Hidden Sidebar Items</span>
-            </button>
-          </div>
-          </div>`
-      )
-
-    document
-      .querySelector('#cityssm_restoreSidebar')
-      ?.addEventListener('click', clearHideSettings)
-  }
+  })
 })()

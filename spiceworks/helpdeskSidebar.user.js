@@ -3,13 +3,13 @@
 // @namespace    https://github.com/cityssm/userscripts
 // @match        https://on.spiceworks.com/*
 // @match        https://*.on.spiceworks.com/*
-// @match        https://apps.spiceworks.com/tools/*
 // @grant        GM_getValue
 // @grant        GM_setValue
 // @grant        GM_deleteValue
+// @grant        GM_registerMenuCommand
 // @version      0.1.0
 // @author       The Corporation of the City of Sault Ste. Marie
-// @description  Detects unused tools (after first click), and removes them from the help desk sidebar.
+// @description  Adds menu options to remove unused tools from the help desk sidebar.
 // @run-at       document-end
 // @downloadURL  https://raw.githubusercontent.com/cityssm/userscripts/main/spiceworks/helpdeskSidebar.user.js
 // @supportURL   https://github.com/cityssm/userscripts/issues
@@ -19,53 +19,60 @@
 ;
 (() => {
     /*
-     * Contracts
+     * Device / Software Inventory
      */
     var _a, _b, _c, _d;
-    const hideContractsStorageKey = 'spiceworks_hideContracts';
-    const hideContracts = GM_getValue(hideContractsStorageKey);
-    if (hideContracts !== undefined && hideContracts) {
+    const hideInventoryStorageKey = 'spiceworks_hideInventory';
+    const hideInventory = GM_getValue(hideInventoryStorageKey, false);
+    if (hideInventory) {
         (_a = document
-            .querySelector('.chd-tools-nav-container a[href^="https://apps.spiceworks.com/tools/contracts"]')) === null || _a === void 0 ? void 0 : _a.remove();
+            .querySelector('.chd-tools-nav-container a[href^="https://apps.spiceworks.com/tools/device-inventory"]')) === null || _a === void 0 ? void 0 : _a.remove();
+        (_b = document
+            .querySelector('.chd-tools-nav-container a[href^="https://apps.spiceworks.com/tools/device-inventory/software"]')) === null || _b === void 0 ? void 0 : _b.remove();
     }
-    else if (hideContracts === undefined &&
-        window.location.href ===
-            'https://apps.spiceworks.com/tools/contracts/registration') {
-        GM_setValue(hideContractsStorageKey, true);
+    else {
+        GM_registerMenuCommand('Hide Device/Software Inventory', () => {
+            GM_setValue(hideInventoryStorageKey, true);
+            alert('The inventory sidebar items will be hidden on refresh.');
+        });
+    }
+    /*
+     * Contracts
+     */
+    const hideContractsStorageKey = 'spiceworks_hideContracts';
+    const hideContracts = GM_getValue(hideContractsStorageKey, false);
+    if (hideContracts) {
+        (_c = document
+            .querySelector('.chd-tools-nav-container a[href^="https://apps.spiceworks.com/tools/contracts"]')) === null || _c === void 0 ? void 0 : _c.remove();
+    }
+    else {
+        GM_registerMenuCommand('Hide Contracts', () => {
+            GM_setValue(hideContractsStorageKey, true);
+            alert('The contracts sidebar item will be hidden on refresh.');
+        });
     }
     /*
      * Connectivity Dashboard
      */
     const hideConnectivityStorageKey = 'spiceworks_hideConnectivity';
-    const hideConnectivity = GM_getValue(hideConnectivityStorageKey);
-    if (hideConnectivity !== undefined && hideConnectivity) {
-        (_b = document
-            .querySelector('.chd-tools-nav-container a[href^="https://apps.spiceworks.com/tools/connectivity-dashboard"]')) === null || _b === void 0 ? void 0 : _b.remove();
+    const hideConnectivity = GM_getValue(hideConnectivityStorageKey, false);
+    if (hideConnectivity) {
+        (_d = document
+            .querySelector('.chd-tools-nav-container a[href^="https://apps.spiceworks.com/tools/connectivity-dashboard"]')) === null || _d === void 0 ? void 0 : _d.remove();
     }
-    else if (hideConnectivity === undefined &&
-        window.location.href ===
-            'https://apps.spiceworks.com/tools/connectivity-dashboard/registration') {
-        GM_setValue(hideConnectivityStorageKey, true);
+    else {
+        GM_registerMenuCommand('Hide Connectivity Dashboard', () => {
+            GM_setValue(hideConnectivityStorageKey, true);
+            alert('The connectivity dashboard sidebar item will be hidden on refresh.');
+        });
     }
     /*
-     * Settings (Restore Hidden)
+     * Restore Hidden Tools
      */
-    function clearHideSettings() {
+    GM_registerMenuCommand('Restore Hidden Sidebar Items', () => {
         GM_deleteValue(hideContractsStorageKey);
         GM_deleteValue(hideConnectivityStorageKey);
+        GM_deleteValue(hideInventoryStorageKey);
         alert('The hidden sidebar items will be restored on refresh.');
-    }
-    if (window.location.href.includes('spiceworks.com/settings/my-settings')) {
-        (_c = document
-            .querySelector('.settings-app-section .tw-divide-dotted')) === null || _c === void 0 ? void 0 : _c.insertAdjacentHTML('beforeend', `<div class="row tw-flex tw-items-center tw-px-3 no-gutters">
-          <div class="tw-w-5/12"></div>
-          <div class="tw-w-7/12">
-            <button id="cityssm_restoreSidebar" class="chd-btn-dusk tw-flex dark:tw-bg-dusk-200 dark:tw-text-earl-900">
-              <span class="tw-ml-2 tw-hidden tw-whitespace-nowrap lg:tw-block">Restore Hidden Sidebar Items</span>
-            </button>
-          </div>
-          </div>`);
-        (_d = document
-            .querySelector('#cityssm_restoreSidebar')) === null || _d === void 0 ? void 0 : _d.addEventListener('click', clearHideSettings);
-    }
+    });
 })();
