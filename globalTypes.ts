@@ -24,6 +24,7 @@ declare global {
     email: string
     id: number
     is_org_restricted: boolean
+    // eslint-disable-next-line @typescript-eslint/no-redundant-type-constituents
     restricted_organization_ids: null | unknown
     role: 'admin' | 'manager' | 'tech'
     selected_date_display_format: string
