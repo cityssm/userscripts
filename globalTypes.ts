@@ -1,6 +1,8 @@
 // eslint-disable-next-line @eslint-community/eslint-comments/disable-enable-pair
 /* eslint-disable @typescript-eslint/naming-convention, @typescript-eslint/no-explicit-any */
 
+export {}
+
 declare global {
   function GM_getValue(key: string, defaultValue?: any): any
 

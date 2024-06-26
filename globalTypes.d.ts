@@ -1,3 +1,4 @@
+export {};
 declare global {
     function GM_getValue(key: string, defaultValue?: any): any;
     function GM_setValue(key: string, value: any): void;
@@ -23,4 +24,3 @@ declare global {
         wants_relative_dates: boolean;
     };
 }
-export {};
