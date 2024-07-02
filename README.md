@@ -38,6 +38,9 @@ Stops the header from changing sizes between work order tabs.
 
 ### Reports
 
+📜 [Reports - Highlight Favourites](https://github.com/cityssm/userscripts/raw/main/fasterWeb/reportFavourites.user.js)<br />
+Makes favourite reports easier to find.
+
 📜 [Reports - Remove "Basic Print"](https://github.com/cityssm/userscripts/raw/main/fasterWeb/reportHideBasicPrint.user.js)<br />
 Removes the unsupported "Basic Print" button.
 
