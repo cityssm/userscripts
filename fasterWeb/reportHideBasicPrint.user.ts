@@ -3,7 +3,7 @@
 // @namespace    https://github.com/cityssm/userscripts
 // @match        https://*.fasterwebcloud.com/FASTER/Domains/Reports/ReportViewer.aspx
 // @grant        none
-// @version      1.0.1
+// @version      1.1.0
 // @author       The Corporation of the City of Sault Ste. Marie
 // @description  Removes the unsupported "Basic Print" button.
 // @run-at       document-end
@@ -14,13 +14,13 @@
 // ==/UserScript==
 
 ;(() => {
-  const printButtonContainerElement =
-    document.querySelector('#PrintRadButton')?.parentElement
+  const printButtonElement =
+    document.querySelector('#PrintRadButton') as HTMLElement | null
 
   if (
-    printButtonContainerElement !== null &&
-    printButtonContainerElement !== undefined
+    printButtonElement !== null &&
+    printButtonElement !== undefined
   ) {
-    printButtonContainerElement.style.display = 'none'
+    printButtonElement.style.display = 'none'
   }
 })()
