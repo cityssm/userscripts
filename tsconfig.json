@@ -16,5 +16,5 @@
   },
   "compileOnSave": true,
   "buildOnSave": true,
-  "files": ["eslint.config.mts"]
+  "files": ["eslint.config.mts", "prettier.config.mts"]
 }
