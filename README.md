@@ -9,7 +9,7 @@ They will likely work with other userscript extensions, like Greasemonkey, Tampe
 
 ## Userscripts for FASTER Web
 
-[FASTER Web](https://fasterasset.com/products/fleet-management-software/) is fleet management software.
+[FASTER Web](https://fasterasset.com/products/fleet-management-software/) is a cloud-based, fleet management information system (FMIS).
 It can be used to track assets, maintenance on those assets, and parts inventory used by those assets.
 
 ### All Sections
