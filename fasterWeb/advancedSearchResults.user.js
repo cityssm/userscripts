@@ -9,7 +9,7 @@
 // @match        https://*.fasterwebcloud.com/FASTER/Domains/Accounting/Search/Default.aspx
 // @match        https://*.fasterwebcloud.com/FASTER/Domains/Vendors/Search/Default.aspx
 // @grant        none
-// @version      1.0.0
+// @version      1.0.1
 // @author       The Corporation of the City of Sault Ste. Marie
 // @description  Loads search results immediately on Advanced Search pages.
 // @run-at       document-end
@@ -20,10 +20,15 @@
 // ==/UserScript==
 ;
 (() => {
-    var _a;
     const isPost = document.referrer === window.location.href;
     if (!isPost) {
-        ;
-        (_a = document.querySelector('a.rfdSkinnedButton input[type="submit"]')) === null || _a === void 0 ? void 0 : _a.click();
+        document.body.style.opacity = '0';
+        try {
+            ;
+            document.querySelector('a.rfdSkinnedButton input[type="submit"]').click();
+        }
+        catch (_a) {
+            document.body.style.opacity = '1';
+        }
     }
 })();
