@@ -15,7 +15,7 @@ It can be used to track assets, maintenance on those assets, and parts inventory
 ### All Sections
 
 📜 [Domain Tabs](https://github.com/cityssm/userscripts/raw/main/fasterWeb/domainLinks.user.js)<br />
-Updates domain tabs to default to more useful pages.
+Updates domain tabs to default to Advanced Search pages.
 
 📜 [Focus Outlines](https://github.com/cityssm/userscripts/raw/main/fasterWeb/focusOutlines.user.js)<br />
 Increases accessibility by outlining actionable elements on hover and keyboard focus.
