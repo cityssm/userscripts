@@ -20,6 +20,9 @@ Updates domain tabs to default to Advanced Search pages.
 📜 [Advanced Search Results](https://github.com/cityssm/userscripts/raw/main/fasterWeb/advancedSearchResults.user.js)<br />
 Loads search results immediately on Advanced Search pages.
 
+📜 [Increase Font Sizes](https://github.com/cityssm/userscripts/raw/main/fasterWeb/biggerText.user.js)<br />
+Set the zoom level to 130%, making the text more readable.
+
 📜 [Focus Outlines](https://github.com/cityssm/userscripts/raw/main/fasterWeb/focusOutlines.user.js)<br />
 Increases accessibility by outlining actionable elements on hover and keyboard focus.
 
