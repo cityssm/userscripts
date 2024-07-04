@@ -3,7 +3,7 @@
 // @namespace    https://github.com/cityssm/userscripts
 // @match        https://*.fasterwebcloud.com/FASTER/Domains/Maintenance/WorkOrder*/*
 // @grant        none
-// @version      1.0.0
+// @version      1.0.1
 // @author       The Corporation of the City of Sault Ste. Marie
 // @description  Stops the header from changing sizes between work order tabs.
 // @run-at       document-end
@@ -23,6 +23,7 @@
     'repairdetail.aspx',
     'labordetail.aspx',
     'partsissuedetail.aspx',
+    'partlist.aspx',
     'subletdetail.aspx',
     'othercostmaster.aspx',
     'maintnotedetail.aspx',
