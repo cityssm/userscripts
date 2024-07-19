@@ -32,6 +32,10 @@ Replaces the thick block separator with a thin black line.
 📜 [Print Friendly](https://github.com/cityssm/userscripts/raw/main/fasterWeb/printFriendly.user.js)<br />
 Improves print-friendliness by only printing the content area.
 
+📜 [Item Number Autocomplete](https://github.com/cityssm/userscripts/raw/main/fasterWeb/itemNumberAutocomplete.user.js)<br />
+Adds autocomplete suggestions to item number input fields. Define "itemNumbers.json" URL in options.
+See a [sample "itemNumbers.json"](./fasterWeb/data/itemNumbers.json) file for help structuring your own.
+
 ### Sault Ste. Marie Specific
 
 📜 [Field Validation](https://github.com/cityssm/userscripts/raw/main/fasterWeb/ssmFieldValidation.user.js)<br />
