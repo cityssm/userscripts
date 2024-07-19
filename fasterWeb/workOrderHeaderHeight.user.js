@@ -1,11 +1,12 @@
 // ==UserScript==
-// @name         FASTER Web - Maintenance - Work Order Header Height
+// @name         FASTER Web - Maintenance - Work Order / Direct Charge Header Height
 // @namespace    https://github.com/cityssm/userscripts
+// @match        https://*.fasterwebcloud.com/FASTER/Domains/Maintenance/DirectCharge*/*
 // @match        https://*.fasterwebcloud.com/FASTER/Domains/Maintenance/WorkOrder*/*
 // @grant        none
-// @version      1.0.1
+// @version      1.1.0
 // @author       The Corporation of the City of Sault Ste. Marie
-// @description  Stops the header from changing sizes between work order tabs.
+// @description  Stops the header from changing sizes between work order and direct charge tabs.
 // @run-at       document-end
 // @downloadURL  https://raw.githubusercontent.com/cityssm/userscripts/main/fasterWeb/workOrderHeaderHeight.user.js
 // @supportURL   https://github.com/cityssm/userscripts/issues
@@ -15,11 +16,12 @@
 ;
 (() => {
     /*
-     * Validate that the page is a work order page
+     * Validate that the page is a direct charge / work order page
      */
     var _a, _b;
     const validPathNames = [
         'workordermaster.aspx',
+        'directchargemaster.aspx',
         'repairdetail.aspx',
         'labordetail.aspx',
         'partsissuedetail.aspx',

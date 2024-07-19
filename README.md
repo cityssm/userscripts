@@ -44,8 +44,8 @@ Adds a link to the City's Userscripts page to the Actions menu.
 
 ### Maintenance
 
-📜 [Maintenance - Work Order Header Height](https://github.com/cityssm/userscripts/raw/main/fasterWeb/workOrderHeaderHeight.user.js)<br />
-Stops the header from changing sizes between work order tabs.
+📜 [Maintenance - Work Order / Direct Charge Header Height](https://github.com/cityssm/userscripts/raw/main/fasterWeb/workOrderHeaderHeight.user.js)<br />
+Stops the header from changing sizes between work order and direct charge tabs.
 
 ### Reports
 
