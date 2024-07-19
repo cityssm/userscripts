@@ -32,6 +32,11 @@ Replaces the thick block separator with a thin black line.
 📜 [Print Friendly](https://github.com/cityssm/userscripts/raw/main/fasterWeb/printFriendly.user.js)<br />
 Improves print-friendliness by only printing the content area.
 
+### Sault Ste. Marie Specific
+
+📜 [Field Validation](https://github.com/cityssm/userscripts/raw/main/fasterWeb/ssmFieldValidation.user.js)<br />
+Enforces field validation as per Sault Ste. Marie's requirements.
+
 ### Home
 
 📜 [Home - Link to Userscripts](https://github.com/cityssm/userscripts/raw/main/fasterWeb/homeLinkToUserscripts.user.js)<br />
