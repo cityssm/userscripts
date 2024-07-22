@@ -44,7 +44,8 @@ It can be used to track assets, maintenance on those assets, and parts inventory
 
 - Adds autocomplete suggestions to item number input fields.
 - Define "itemNumbers.json" URL in options.
-- See a [sample "itemNumbers.json"](./fasterWeb/data/itemNumbers.json) file for help structuring your own.
+- See a [sample "itemNumbers.json"](./fasterWeb/data/itemNumbers.json) file for help structuring your own,
+  or use the [FASTER Web Helper service](https://github.com/cityssm/faster-web-helper) to generate it for you.
 
 ### Sault Ste. Marie Specific
 
