@@ -64,7 +64,7 @@ It can be used to track assets, maintenance on those assets, and parts inventory
 
 #### 📜 [Maintenance - Work Order / Direct Charge Header Height](https://github.com/cityssm/userscripts/raw/main/fasterWeb/workOrderHeaderHeight.user.js)
 
-Stops the header from changing sizes between work order and direct charge tabs.
+- Stops the header from changing sizes between work order and direct charge tabs.
 
 ### Reports
 
