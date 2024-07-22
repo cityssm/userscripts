@@ -3,11 +3,16 @@
 // @namespace    https://github.com/cityssm/userscripts
 // @match        https://*.fasterwebcloud.com/FASTER/Domains/Maintenance/DirectCharge/PartsIssueAdd.aspx
 // @match        https://*.fasterwebcloud.com/FASTER/Domains/Maintenance/WorkOrder/PartsIssueAdd.aspx
+// @match        https://*.fasterwebcloud.com/FASTER/Domains/Parts/PartReassign/Default.aspx
+// @match        https://*.fasterwebcloud.com/FASTER/Domains/Parts/PartRequest/PartsRequest.aspx
+// @match        https://*.fasterwebcloud.com/FASTER/Domains/Parts/PerformInventory/Default.aspx
+// @match        https://*.fasterwebcloud.com/FASTER/Domains/Parts/Search/Default.aspx
+// @match        https://*.fasterwebcloud.com/FASTER/Domains/Parts/Search/PartIssueSearch.aspx
 // @grant        GM_getValue
 // @grant        GM_setValue
 // @grant        GM_registerMenuCommand
 // @grant        GM_xmlhttpRequest
-// @version      1.0.0
+// @version      1.1.0
 // @author       The Corporation of the City of Sault Ste. Marie
 // @description  Adds autocomplete suggestions to item number input fields. Define "itemNumbers.json" URL in options.
 // @run-at       document-end
@@ -47,7 +52,15 @@
     /*
      * Set List Attribute
      */
-    const inputElementSelectors = ['input#PartNumberRadTextBox'];
+    const inputElementSelectors = [
+        'input#PartNumberRadTextBox',
+        'input#ctl00_ContentPlaceHolder_Content_ExistingPartNumberRadTextBox',
+        'input#ctl00_ContentPlaceHolder_Content_RadDockSearch_C_PartNumberSearchRadTextBox',
+        'input#ctl00_ContentPlaceHolder_Content_RadDockSearch_C_SearchStringRadTextBox',
+        'input#ctl00_ContentPlaceHolder_Content_SearchCriteriaRadDock_C_PartNumberFromRadTextBox',
+        'input#ctl00_ContentPlaceHolder_Content_SearchCriteriaRadDock_C_PartNumberToRadTextBox',
+        'input#ctl00_ContentPlaceHolder_Content_SearchRadDock_C_PartNumberRadTextBox',
+    ];
     function addListAttribute() {
         var _a;
         for (const inputElementSelector of inputElementSelectors) {
