@@ -4,7 +4,7 @@
 // @match        https://*.fasterwebcloud.com/FASTER/Domains/Reports/Default.aspx
 // @grant        GM_getValue
 // @grant        GM_setValue
-// @version      1.0.0
+// @version      1.1.0
 // @author       The Corporation of the City of Sault Ste. Marie
 // @description  Makes favourite reports easier to find.
 // @run-at       document-end
@@ -54,11 +54,15 @@
     }
 
     .${toggleButtonClassName}[aria-checked='false'] {
-      opacity: 0.2
+      opacity: 0.5;
     }
 
     contenttemplate:has(.${toggleButtonClassName}[aria-checked='true']) {
       background-color: yellow;
+    }
+      
+    contenttemplate:has(.${toggleButtonClassName}[aria-checked='false']) {
+      opacity: 0.4;
     }
     </style>`);
     /*
