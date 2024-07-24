@@ -7,6 +7,8 @@ available for Chrome, Firefox, Edge, and others.
 
 They will likely work with other userscript extensions, like Greasemonkey, Tampermonkey, and Firemonkey.
 
+❗ **Always remember! Only install Userscripts you completely trust!**
+
 ## Userscripts for FASTER Web
 
 [FASTER Web](https://fasterasset.com/products/fleet-management-software/) is a cloud-based, fleet management information system (FMIS).
