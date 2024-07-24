@@ -1,16 +1,17 @@
 // ==UserScript==
-// @name         FASTER Web - Sault Ste. Marie - Field Validation
-// @namespace    https://github.com/cityssm/userscripts
-// @match        https://*.fasterwebcloud.com/FASTER/*
-// @grant        none
-// @version      1.0.0
-// @author       The Corporation of the City of Sault Ste. Marie
-// @description  Enforces field validation as per Sault Ste. Marie's requirements.
-// @run-at       document-end
-// @downloadURL  https://raw.githubusercontent.com/cityssm/userscripts/main/fasterWeb/ssmFieldValidation.user.js
-// @supportURL   https://github.com/cityssm/userscripts/issues
-// @homepageURL  https://cityssm.github.io/userscripts/
-// @icon         https://cityssm.github.io/img/header-cityssm.png
+// @name           FASTER Web - Sault Ste. Marie - Field Validation
+// @namespace      https://github.com/cityssm/userscripts
+// @match          https://*.fasterwebcloud.com/FASTER/*
+// @exclude-match  https://*.fasterwebcloud.com/FASTER/Login/*
+// @grant          none
+// @version        1.1.0
+// @author         The Corporation of the City of Sault Ste. Marie
+// @description    Enforces field validation as per Sault Ste. Marie's requirements.
+// @run-at         document-end
+// @downloadURL    https://raw.githubusercontent.com/cityssm/userscripts/main/fasterWeb/ssmFieldValidation.user.js
+// @supportURL     https://github.com/cityssm/userscripts/issues
+// @homepageURL    https://cityssm.github.io/userscripts/
+// @icon           https://cityssm.github.io/img/header-cityssm.png
 // ==/UserScript==
 ;
 (() => {
