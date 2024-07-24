@@ -88,6 +88,8 @@ It can be used to track assets, maintenance on those assets, and parts inventory
 
 #### 📜 [Reports - Remove "Basic Print"](https://github.com/cityssm/userscripts/raw/main/fasterWeb/reportHideBasicPrint.user.js)<br />
 
+![Reports - Remove "Basic Print"](./fasterWeb/docs/reportHideBasicPrint.png)
+
 - Removes the unsupported "Basic Print" button.
 
 ## Userscripts for Spiceworks
