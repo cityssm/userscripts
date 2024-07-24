@@ -38,14 +38,25 @@ It can be used to track assets, maintenance on those assets, and parts inventory
 
 - Improves print-friendliness by only printing the content area.
 
-#### 📜 [Item Number Autocomplete](https://github.com/cityssm/userscripts/raw/main/fasterWeb/itemNumberAutocomplete.user.js)
+### Autocompletes
 
 ![Item Number Autocomplete](./fasterWeb/docs/itemNumberAutocomplete.png)
+
+#### 📜 [Asset Number Autocomplete](https://github.com/cityssm/userscripts/raw/main/fasterWeb/assetNumberAutocomplete.user.js)
+
+- Adds autocomplete suggestions to asset number input fields.
+- Define "assetNumbers.json" URL in options.
+- See a [sample "assetNumbers.json"](./fasterWeb/data/assetNumbers.json) file for help structuring your own,
+  or use the [FASTER Web Helper service](https://github.com/cityssm/faster-web-helper) to generate it for you
+  from a scheduled report.
+
+#### 📜 [Item Number Autocomplete](https://github.com/cityssm/userscripts/raw/main/fasterWeb/itemNumberAutocomplete.user.js)
 
 - Adds autocomplete suggestions to item number input fields.
 - Define "itemNumbers.json" URL in options.
 - See a [sample "itemNumbers.json"](./fasterWeb/data/itemNumbers.json) file for help structuring your own,
-  or use the [FASTER Web Helper service](https://github.com/cityssm/faster-web-helper) to generate it for you.
+  or use the [FASTER Web Helper service](https://github.com/cityssm/faster-web-helper) to generate it for you
+  from a scheduled report.
 
 ### Sault Ste. Marie Specific
 
