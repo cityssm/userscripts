@@ -17,10 +17,14 @@
 // ==/UserScript==
 ;
 (() => {
-    var _a, _b;
-    const tenant = window.location.hostname.split('.')[0];
-    const orderNumber = (_b = (_a = document.querySelector('#ctl00_ContentPlaceHolder_Content_HiddenLabel')) === null || _a === void 0 ? void 0 : _a.textContent) !== null && _b !== void 0 ? _b : '';
-    if (orderNumber === '') {
+    var _a, _b, _c, _d, _e, _f;
+    const orderDetails = {
+        tenant: window.location.hostname.split('.')[0],
+        orderNumber: (_b = (_a = document.querySelector('#ctl00_ContentPlaceHolder_Content_HiddenLabel')) === null || _a === void 0 ? void 0 : _a.textContent) !== null && _b !== void 0 ? _b : '',
+        orderStatus: (_d = (_c = document.querySelector('#ctl00_ContentPlaceHolder_Content_OrderDetailRadDock_C_OrderDetailDetailMenu_OrderStatusValueLabel')) === null || _c === void 0 ? void 0 : _c.textContent) !== null && _d !== void 0 ? _d : '',
+        orderTotal: Number.parseFloat((_f = (_e = document.querySelector('#ctl00_ContentPlaceHolder_Content_OrderLineItemsRadDock_C_OrderTotalValueLabel')) === null || _e === void 0 ? void 0 : _e.textContent) !== null && _f !== void 0 ? _f : '0')
+    };
+    if (orderDetails.orderNumber === '') {
         return;
     }
     const fasterWebHelperUrlStorageKey = 'fasterWeb_fasterWebHelperUrl';
@@ -163,6 +167,9 @@
                     else {
                         alert('Login failed. Please try again.');
                     }
+                },
+                onerror(response) {
+                    alert('FASTER Web Helper currently unavailable.');
                 }
             });
         });
@@ -173,10 +180,11 @@
             method: 'POST',
             responseType: 'json',
             data: new URLSearchParams({
-                tenant,
-                orderNumber
+                tenant: orderDetails.tenant,
+                orderNumber: orderDetails.orderNumber
             }),
             onload(response) {
+                var _a, _b;
                 const purchaseOrderResponse = response.response;
                 if (!purchaseOrderResponse.isLoggedIn) {
                     userKeyGuid = '';
@@ -185,10 +193,63 @@
                     return;
                 }
                 if (purchaseOrderResponse.purchaseOrder === undefined) {
-                    sidebarElement.insertAdjacentHTML('beforeend', 'No approval currently tracked');
+                    sidebarElement.insertAdjacentHTML('beforeend', '<p>No approval currently tracked.</p>');
+                    if (orderDetails.orderStatus === 'Open' &&
+                        orderDetails.orderTotal > 0) {
+                        sidebarElement.insertAdjacentHTML('beforeend', `<p>
+                <button type="button">Start Approval</button>
+                </p>`);
+                        (_a = sidebarElement
+                            .querySelector('button')) === null || _a === void 0 ? void 0 : _a.addEventListener('click', () => {
+                            GM_xmlhttpRequest({
+                                url: `${fasterWebHelperUrl}/purchaseOrderApprovals/doCreatePurchaseOrder`,
+                                method: 'POST',
+                                responseType: 'json',
+                                data: new URLSearchParams({
+                                    tenant: orderDetails.tenant,
+                                    orderNumber: orderDetails.orderNumber,
+                                    orderTotal: orderDetails.orderTotal.toString()
+                                }),
+                                onload(response) {
+                                    const createResponse = response.response;
+                                    if (!createResponse.isLoggedIn) {
+                                        alert('Approval session expired. Refreshing...');
+                                        window.location.reload();
+                                    }
+                                    else if (createResponse.success) {
+                                        window.location.reload();
+                                    }
+                                    else {
+                                        alert(createResponse.message);
+                                    }
+                                }
+                            });
+                        });
+                    }
                 }
                 else {
-                    sidebarElement.insertAdjacentHTML('beforeend', 'Show current approvals');
+                    sidebarElement.insertAdjacentHTML('beforeend', `<table>
+              <thead>
+                <tr>
+                  <th>&nbsp;</th>
+                  <th>Approver</th>
+                  <th style="text-align:right">Approval Amount</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+              </table>`);
+                    for (const approval of purchaseOrderResponse.purchaseOrder
+                        .approvals) {
+                        (_b = sidebarElement.querySelector('tbody')) === null || _b === void 0 ? void 0 : _b.insertAdjacentHTML('beforeend', `<tr>
+                <td>
+                ${approval.isApproved ? '✔️' : '❌'}
+                </td>
+                <td>${approval.userName}</td>
+                <td style="text-align:right">
+                  $${approval.approvalAmount.toFixed(2)}
+                </td>
+                </tr>`);
+                    }
                 }
             }
         });
@@ -209,6 +270,9 @@
                     GM_setValue(userKeyGuidStorageKey, userKeyGuid);
                     initializeMissingUserKeyGuid();
                 }
+            },
+            onerror(response) {
+                sidebarElement.insertAdjacentHTML('beforeend', `<p><strong>FASTER Web Helper currently unavailable.</strong></p>`);
             }
         });
     }

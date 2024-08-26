@@ -16,13 +16,36 @@
 // @icon         https://cityssm.github.io/img/header-cityssm.png
 // ==/UserScript==
 
-;(() => {
-  const tenant = window.location.hostname.split('.')[0]
+interface PurchaseOrder {
+  orderTotal: number
+  approvals: Array<{
+    userName: string
+    approvalAmount: number
+    isApproved: boolean
+  }>
+}
 
-  const orderNumber =
-    document.querySelector('#ctl00_ContentPlaceHolder_Content_HiddenLabel')
-      ?.textContent ?? ''
-  if (orderNumber === '') {
+;(() => {
+  const orderDetails = {
+    tenant: window.location.hostname.split('.')[0],
+
+    orderNumber:
+      document.querySelector('#ctl00_ContentPlaceHolder_Content_HiddenLabel')
+        ?.textContent ?? '',
+
+    orderStatus:
+      document.querySelector(
+        '#ctl00_ContentPlaceHolder_Content_OrderDetailRadDock_C_OrderDetailDetailMenu_OrderStatusValueLabel'
+      )?.textContent ?? '',
+
+    orderTotal: Number.parseFloat(
+      document.querySelector(
+        '#ctl00_ContentPlaceHolder_Content_OrderLineItemsRadDock_C_OrderTotalValueLabel'
+      )?.textContent ?? '0'
+    )
+  }
+
+  if (orderDetails.orderNumber === '') {
     return
   }
 
@@ -233,6 +256,9 @@
             } else {
               alert('Login failed. Please try again.')
             }
+          },
+          onerror(response) {
+            alert('FASTER Web Helper currently unavailable.')
           }
         })
       })
@@ -244,13 +270,13 @@
       method: 'POST',
       responseType: 'json',
       data: new URLSearchParams({
-        tenant,
-        orderNumber
+        tenant: orderDetails.tenant,
+        orderNumber: orderDetails.orderNumber
       }),
       onload(response) {
         const purchaseOrderResponse = response.response as
           | { isLoggedIn: false }
-          | { isLoggedIn: true; purchaseOrder?: object }
+          | { isLoggedIn: true; purchaseOrder?: PurchaseOrder }
 
         if (!purchaseOrderResponse.isLoggedIn) {
           userKeyGuid = ''
@@ -262,13 +288,81 @@
         if (purchaseOrderResponse.purchaseOrder === undefined) {
           sidebarElement.insertAdjacentHTML(
             'beforeend',
-            'No approval currently tracked'
+            '<p>No approval currently tracked.</p>'
           )
+
+          if (
+            orderDetails.orderStatus === 'Open' &&
+            orderDetails.orderTotal > 0
+          ) {
+            sidebarElement.insertAdjacentHTML(
+              'beforeend',
+              `<p>
+                <button type="button">Start Approval</button>
+                </p>`
+            )
+
+            sidebarElement
+              .querySelector('button')
+              ?.addEventListener('click', () => {
+                GM_xmlhttpRequest({
+                  url: `${fasterWebHelperUrl}/purchaseOrderApprovals/doCreatePurchaseOrder`,
+                  method: 'POST',
+                  responseType: 'json',
+                  data: new URLSearchParams({
+                    tenant: orderDetails.tenant,
+                    orderNumber: orderDetails.orderNumber,
+                    orderTotal: orderDetails.orderTotal.toString()
+                  }),
+                  onload(response) {
+                    const createResponse = response.response as {
+                      isLoggedIn: boolean
+                      success: boolean
+                      message: string
+                    }
+
+                    if (!createResponse.isLoggedIn) {
+                      alert('Approval session expired. Refreshing...')
+                      window.location.reload()
+                    } else if (createResponse.success) {
+                      window.location.reload()
+                    } else {
+                      alert(createResponse.message)
+                    }
+                  }
+                })
+              })
+          }
         } else {
           sidebarElement.insertAdjacentHTML(
             'beforeend',
-            'Show current approvals'
+            `<table>
+              <thead>
+                <tr>
+                  <th>&nbsp;</th>
+                  <th>Approver</th>
+                  <th style="text-align:right">Approval Amount</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+              </table>`
           )
+
+          for (const approval of purchaseOrderResponse.purchaseOrder
+            .approvals) {
+            sidebarElement.querySelector('tbody')?.insertAdjacentHTML(
+              'beforeend',
+              `<tr>
+                <td>
+                ${approval.isApproved ? '✔️' : '❌'}
+                </td>
+                <td>${approval.userName}</td>
+                <td style="text-align:right">
+                  $${approval.approvalAmount.toFixed(2)}
+                </td>
+                </tr>`
+            )
+          }
         }
       }
     })
@@ -298,6 +392,12 @@
           GM_setValue(userKeyGuidStorageKey, userKeyGuid)
           initializeMissingUserKeyGuid()
         }
+      },
+      onerror(response) {
+        sidebarElement.insertAdjacentHTML(
+          'beforeend',
+          `<p><strong>FASTER Web Helper currently unavailable.</strong></p>`
+        )
       }
     })
   }
