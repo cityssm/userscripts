@@ -15,9 +15,9 @@
 // @match        https://*.fasterwebcloud.com/FASTER/Domains/Accounting/Search/Default.aspx
 // @match        https://*.fasterwebcloud.com/FASTER/Domains/Vendors/Search/Default.aspx
 // @grant        none
-// @version      1.1.0
+// @version      1.1.1
 // @author       The Corporation of the City of Sault Ste. Marie
-// @description  Loads search results immediately on Advanced Search pages.
+// @description  Loads search results immediately on Advanced Search and other search pages.
 // @run-at       document-end
 // @downloadURL  https://raw.githubusercontent.com/cityssm/userscripts/main/fasterWeb/advancedSearchResults.user.js
 // @supportURL   https://github.com/cityssm/userscripts/issues

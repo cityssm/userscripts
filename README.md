@@ -22,7 +22,7 @@ It can be used to track assets, maintenance on those assets, and parts inventory
 
 #### 📜 [Advanced Search Results](https://github.com/cityssm/userscripts/raw/main/fasterWeb/advancedSearchResults.user.js)
 
-- Loads search results immediately on Advanced Search pages.
+- Loads search results immediately on Advanced Search and other search pages.
 
 #### 📜 [Domain Tabs](https://github.com/cityssm/userscripts/raw/main/fasterWeb/domainLinks.user.js)
 
