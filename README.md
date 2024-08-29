@@ -16,17 +16,17 @@ It can be used to track assets, maintenance on those assets, and parts inventory
 
 ### All Sections
 
-#### 📜 [Domain Tabs](https://github.com/cityssm/userscripts/raw/main/fasterWeb/domainLinks.user.js)
+#### 📜 [Exact Match Default](https://github.com/cityssm/userscripts/raw/main/fasterWeb/exactMatch.user.js)
 
-- Updates domain tabs to default to Advanced Search pages.
+- Remembers the last used "Exact Match" checkbox setting by domain in the menu search.
 
 #### 📜 [Advanced Search Results](https://github.com/cityssm/userscripts/raw/main/fasterWeb/advancedSearchResults.user.js)
 
 - Loads search results immediately on Advanced Search pages.
 
-#### 📜 [Increase Font Sizes](https://github.com/cityssm/userscripts/raw/main/fasterWeb/biggerText.user.js) 🐞
+#### 📜 [Domain Tabs](https://github.com/cityssm/userscripts/raw/main/fasterWeb/domainLinks.user.js)
 
-- Set the zoom level to 130%, making the text more readable.
+- Updates domain tabs to default to Advanced Search pages.
 
 #### 📜 [Focus Outlines](https://github.com/cityssm/userscripts/raw/main/fasterWeb/focusOutlines.user.js)
 
@@ -39,6 +39,10 @@ It can be used to track assets, maintenance on those assets, and parts inventory
 #### 📜 [Print Friendly](https://github.com/cityssm/userscripts/raw/main/fasterWeb/printFriendly.user.js)
 
 - Improves print-friendliness by only printing the content area.
+
+#### 📜 [Increase Font Sizes](https://github.com/cityssm/userscripts/raw/main/fasterWeb/biggerText.user.js) 🐞
+
+- Set the zoom level to 130%, making the text more readable.
 
 ### Autocompletes
 
