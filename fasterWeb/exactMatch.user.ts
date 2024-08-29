@@ -9,7 +9,7 @@
 // @exclude-match  https://*.fasterwebcloud.com/FASTER/Domains/Setup/*
 // @grant          GM_getValue
 // @grant          GM_setValue
-// @version        1.0.1
+// @version        1.0.2
 // @author         The Corporation of the City of Sault Ste. Marie
 // @description    Remembers the last used "Exact Match" checkbox setting by domain in the menu search.
 // @run-at         document-end
@@ -41,8 +41,6 @@
 
   const exactMatchStorageKey = `fasterWeb_exactMatch_${(fasterDomain ?? '').toLowerCase()}`
   const exactMatchSetting = GM_getValue(exactMatchStorageKey, true) as boolean
-
-  console.log(exactMatchSetting)
 
   exactMatchCheckboxElement.checked = exactMatchSetting
 
