@@ -3,11 +3,13 @@
 // @namespace      https://github.com/cityssm/userscripts
 // @match          https://*.fasterwebcloud.com/FASTER/*
 // @exclude-match  https://*.fasterwebcloud.com/FASTER/Login/*
+// @exclude-match  https://*.fasterwebcloud.com/FASTER/Domains/Home/*
+// @exclude-match  https://*.fasterwebcloud.com/FASTER/Domains/Integrations/*
 // @exclude-match  https://*.fasterwebcloud.com/FASTER/Domains/Reports/*
 // @exclude-match  https://*.fasterwebcloud.com/FASTER/Domains/Setup/*
 // @grant          GM_getValue
 // @grant          GM_setValue
-// @version        1.0.0
+// @version        1.0.1
 // @author         The Corporation of the City of Sault Ste. Marie
 // @description    Remembers the last used "Exact Match" checkbox setting by domain in the menu search.
 // @run-at         document-end
