@@ -81,6 +81,10 @@ It can be used to track assets, maintenance on those assets, and parts inventory
 
 ### Maintenance
 
+#### 📜 [Maintenance - Work Order / Direct Charge Default Parts Tab](https://github.com/cityssm/userscripts/raw/main/fasterWeb/workOrderDefaultPartsTab.user.js)
+
+- Changes the default tab to "Parts" when opening a work order or direct charge, helping storeroom staff save a click.
+
 #### 📜 [Maintenance - Work Order / Direct Charge Header Height](https://github.com/cityssm/userscripts/raw/main/fasterWeb/workOrderHeaderHeight.user.js)
 
 - Stops the header from changing sizes between work order and direct charge tabs.
