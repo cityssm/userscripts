@@ -3,13 +3,19 @@
 // @namespace    https://github.com/cityssm/userscripts
 // @match        https://*.fasterwebcloud.com/FASTER/Domains/Assets/Search/Default.aspx
 // @match        https://*.fasterwebcloud.com/FASTER/Domains/Parts/Search/Default.aspx
+// @match        https://*.fasterwebcloud.com/FASTER/Domains/Parts/PartOrder/Search.aspx
+// @match        https://*.fasterwebcloud.com/FASTER/Domains/Parts/PartReceive/PartOrderSeach.aspx
+// @match        https://*.fasterwebcloud.com/FASTER/Domains/Parts/PartReceive/Search.aspx
+// @match        https://*.fasterwebcloud.com/FASTER/Domains/Parts/PartReceive/SearchInvoice.aspx
+// @match        https://*.fasterwebcloud.com/FASTER/Domains/Parts/Search/PartIssueSearch.aspx
+// @match        https://*.fasterwebcloud.com/FASTER/Domains/Parts/VendorReturn/SearchReturns.aspx
 // @match        https://*.fasterwebcloud.com/FASTER/Domains/Maintenance/WorkOrder/Search/Default.aspx
 // @match        https://*.fasterwebcloud.com/FASTER/Domains/Maintenance/DirectCharge/Search/Default.aspx
 // @match        https://*.fasterwebcloud.com/FASTER/Domains/Fuel/Search/Default.aspx
 // @match        https://*.fasterwebcloud.com/FASTER/Domains/Accounting/Search/Default.aspx
 // @match        https://*.fasterwebcloud.com/FASTER/Domains/Vendors/Search/Default.aspx
 // @grant        none
-// @version      1.0.1
+// @version      1.1.0
 // @author       The Corporation of the City of Sault Ste. Marie
 // @description  Loads search results immediately on Advanced Search pages.
 // @run-at       document-end
@@ -28,7 +34,7 @@
     try {
       ;(
         document.querySelector(
-          'a.rfdSkinnedButton input[type="submit"]'
+          'a.rfdSkinnedButton input[type="submit"], input.rbDecorated[type="submit"]'
         ) as HTMLInputElement
       ).click()
     } catch {
