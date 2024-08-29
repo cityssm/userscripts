@@ -40,9 +40,10 @@ It can be used to track assets, maintenance on those assets, and parts inventory
 
 - Improves print-friendliness by only printing the content area.
 
-#### 📜 [Increase Font Sizes](https://github.com/cityssm/userscripts/raw/main/fasterWeb/biggerText.user.js) 🐞
+#### 📜 [Increase Font Sizes](https://github.com/cityssm/userscripts/raw/main/fasterWeb/biggerText.user.js)
 
 - Set the zoom level to 130%, making the text more readable.
+- 🐞 Can cause issues with modal placement.
 
 ### Autocompletes
 
