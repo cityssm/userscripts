@@ -4,7 +4,7 @@
 // @match          https://*.fasterwebcloud.com/FASTER/*
 // @exclude-match  https://*.fasterwebcloud.com/FASTER/Login/*
 // @grant          none
-// @version        1.1.0
+// @version        1.2.0
 // @author         The Corporation of the City of Sault Ste. Marie
 // @description    Enforces field validation as per Sault Ste. Marie's requirements.
 // @run-at         document-end
@@ -17,15 +17,34 @@
 (() => {
     const validationClass = 'ssmFieldValidation';
     const patternsToApply = {
-        'input#SymptomTextBox': /^[A-Z]{2}\.\d{2}\.\d{5}$/
+        'input#SymptomTextBox': {
+            minLength: 11,
+            maxLength: 11,
+            pattern: /^[A-Z]{2}\.\d{2}\.\d{5}$/
+        },
+        'input#PartNumberRadTextBox': {
+            minLength: 13,
+            maxLength: 13,
+            pattern: /^\d{2}-\d{4}-\d{5}$/
+        }
     };
     const applyPatterns = (mutationList, observer) => {
-        for (const [selector, patternToApply] of Object.entries(patternsToApply)) {
+        for (const [selector, validators] of Object.entries(patternsToApply)) {
             const elements = document.querySelectorAll(selector);
             for (const element of elements) {
                 if (!element.classList.contains(validationClass)) {
-                    ;
-                    element.pattern = patternToApply.source;
+                    if (validators.minLength !== undefined) {
+                        ;
+                        element.minLength = validators.minLength;
+                    }
+                    if (validators.maxLength !== undefined) {
+                        ;
+                        element.maxLength = validators.maxLength;
+                    }
+                    if (validators.pattern !== undefined) {
+                        ;
+                        element.pattern = validators.pattern.source;
+                    }
                     element.classList.add(validationClass);
                 }
             }
