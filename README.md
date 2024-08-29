@@ -24,7 +24,7 @@ It can be used to track assets, maintenance on those assets, and parts inventory
 
 - Loads search results immediately on Advanced Search pages.
 
-#### 📜 [Increase Font Sizes](https://github.com/cityssm/userscripts/raw/main/fasterWeb/biggerText.user.js)
+#### 📜 [Increase Font Sizes](https://github.com/cityssm/userscripts/raw/main/fasterWeb/biggerText.user.js) 🐞
 
 - Set the zoom level to 130%, making the text more readable.
 
