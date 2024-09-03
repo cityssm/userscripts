@@ -23,7 +23,9 @@
    */
 
   // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-argument
-  const favourteReportsArray: string[] = JSON.parse(GM_getValue(favouriteReportsStorageKey, '[]'))
+  const favourteReportsArray: string[] = JSON.parse(
+    GM_getValue(favouriteReportsStorageKey, '[]')
+  )
 
   const favouriteReports = new Set(favourteReportsArray)
 
@@ -42,21 +44,25 @@
       // Remove favourite status
       toggleElement.ariaChecked = 'false'
       favouriteReports.delete(reportName)
-    
     } else {
       // Add favourite status
       toggleElement.ariaChecked = 'true'
       favouriteReports.add(reportName)
     }
 
-    GM_setValue(favouriteReportsStorageKey, JSON.stringify([...favouriteReports]))
+    GM_setValue(
+      favouriteReportsStorageKey,
+      JSON.stringify([...favouriteReports])
+    )
   }
 
   /*
    * Add styles to head
    */
 
-  document.head.insertAdjacentHTML('beforeend', `<style>
+  document.head.insertAdjacentHTML(
+    'beforeend',
+    `<style>
     .${toggleButtonClassName} {
       margin-right: 0.5em;
       font-size: 1.5em;
@@ -74,13 +80,16 @@
     contenttemplate:has(.${toggleButtonClassName}[aria-checked='false']) {
       opacity: 0.4;
     }
-    </style>`)
+    </style>`
+  )
 
   /*
    * Initialize toggle buttons
    */
 
-  const reportLinkElements = document.querySelectorAll('#ctl00_RadPane_Content a[id$="_ReportLinkButton"]')
+  const reportLinkElements = document.querySelectorAll(
+    '#ctl00_RadPane_Content a[id$="_ReportLinkButton"]'
+  )
 
   for (const reportLinkElement of reportLinkElements) {
     const reportName = reportLinkElement.textContent
@@ -98,7 +107,7 @@
 
     const reportIsFavourite = favouriteReports.has(reportName)
 
-    toggleElement.ariaChecked = reportIsFavourite ? 'true' : 'false';
+    toggleElement.ariaChecked = reportIsFavourite ? 'true' : 'false'
 
     toggleElement.addEventListener('click', toggleFavourite)
 
