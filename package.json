@@ -5,6 +5,7 @@
   "author": "The Corporation of the City of Sault Ste. Marie",
   "license": "MIT",
   "devDependencies": {
+    "@types/tampermonkey": "^5.0.3",
     "eslint-config-cityssm": "^7.0.0",
     "prettier-config-cityssm": "^1.0.0"
   },
