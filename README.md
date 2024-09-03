@@ -20,6 +20,10 @@ It can be used to track assets, maintenance on those assets, and parts inventory
 
 - Remembers the last used "Exact Match" checkbox setting by domain in the menu search.
 
+#### 📜 [Other Field Default](https://github.com/cityssm/userscripts/raw/main/fasterWeb/searchDefaultOtherField.user.js)
+
+- Remembers the last used "Other" field in search filters.
+
 #### 📜 [Advanced Search Results](https://github.com/cityssm/userscripts/raw/main/fasterWeb/advancedSearchResults.user.js)
 
 - Loads search results immediately on Advanced Search and other search pages.
