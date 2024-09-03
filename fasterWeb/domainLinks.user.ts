@@ -3,8 +3,9 @@
 // @namespace      https://github.com/cityssm/userscripts
 // @match          https://*.fasterwebcloud.com/FASTER/*
 // @exclude-match  https://*.fasterwebcloud.com/FASTER/Login/*
+// @exclude-match  https://*.fasterwebcloud.com/FASTER/Domains/Reports/ReportViewer.aspx
 // @grant          none
-// @version        1.2.0
+// @version        1.2.1
 // @author         The Corporation of the City of Sault Ste. Marie
 // @description    Updates domain tabs to default to Advanced Search pages.
 // @run-at         document-end

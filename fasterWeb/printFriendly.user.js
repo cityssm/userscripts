@@ -3,8 +3,9 @@
 // @namespace      https://github.com/cityssm/userscripts
 // @match          https://*.fasterwebcloud.com/FASTER/*
 // @exclude-match  https://*.fasterwebcloud.com/FASTER/Login/*
+// @exclude-match  https://*.fasterwebcloud.com/FASTER/Domains/Reports/ReportViewer.aspx
 // @grant          none
-// @version        1.1.0
+// @version        1.1.1
 // @author         The Corporation of the City of Sault Ste. Marie
 // @description    Improves print-friendliness by only printing the content area.
 // @run-at         document-end
