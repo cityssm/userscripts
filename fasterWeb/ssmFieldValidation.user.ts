@@ -4,7 +4,7 @@
 // @match          https://*.fasterwebcloud.com/FASTER/*
 // @exclude-match  https://*.fasterwebcloud.com/FASTER/Login/*
 // @grant          none
-// @version        1.2.0
+// @version        1.3.0
 // @author         The Corporation of the City of Sault Ste. Marie
 // @description    Enforces field validation as per Sault Ste. Marie's requirements.
 // @run-at         document-end
@@ -18,6 +18,7 @@ interface Validators {
   minLength?: number
   maxLength?: number
   pattern?: RegExp
+  placeholder?: string
 }
 
 ;(() => {
@@ -27,7 +28,8 @@ interface Validators {
     'input#SymptomTextBox': {
       minLength: 11,
       maxLength: 11,
-      pattern: /^[A-Z]{2}\.\d{2}\.\d{5}$/
+      pattern: /^[A-Z]{2}\.\d{2}\.\d{5}$/,
+      placeholder: 'Work Order Number (ex. PW.12.34567)'
     },
     'input#PartNumberRadTextBox': {
       minLength: 13,
@@ -36,23 +38,28 @@ interface Validators {
     }
   }
 
-  const applyPatterns: MutationCallback = (mutationList, observer) => {
+  const applyPatterns: MutationCallback = () => {
     for (const [selector, validators] of Object.entries(patternsToApply)) {
-      const elements = document.querySelectorAll(selector)
+      const elements = document.querySelectorAll(
+        selector
+      ) as NodeListOf<HTMLInputElement>
 
       for (const element of elements) {
         if (!element.classList.contains(validationClass)) {
-
           if (validators.minLength !== undefined) {
-            ;(element as HTMLInputElement).minLength = validators.minLength
+            element.minLength = validators.minLength
           }
 
           if (validators.maxLength !== undefined) {
-            ;(element as HTMLInputElement).maxLength = validators.maxLength
+            element.maxLength = validators.maxLength
           }
 
           if (validators.pattern !== undefined) {
-            ;(element as HTMLInputElement).pattern = validators.pattern.source
+            element.pattern = validators.pattern.source
+          }
+
+          if (validators.placeholder !== undefined) {
+            element.placeholder = validators.placeholder
           }
 
           element.classList.add(validationClass)
