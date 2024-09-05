@@ -1,11 +1,3 @@
-declare const _default: (import("@typescript-eslint/utils/dist/ts-eslint").FlatConfig.Config | {
-    languageOptions: {
-        parserOptions: {
-            project: string[];
-        };
-    };
-    rules: {
-        'no-secrets/no-secrets': string;
-    };
-})[];
+import { type Config } from 'typescript-eslint';
+declare const _default: Config;
 export default _default;
