@@ -35,10 +35,6 @@ for a list of recommended scripts.
 
 - Updates domain tabs to default to Advanced Search pages.
 
-#### 📜 [Focus Outlines](https://github.com/cityssm/userscripts/raw/main/fasterWeb/focusOutlines.user.js)
-
-- Increases accessibility by outlining actionable elements on hover and keyboard focus.
-
 #### 📜 [Horizontal Menu Separators](https://github.com/cityssm/userscripts/raw/main/fasterWeb/horizontalMenuSeparator.user.js)
 
 - Replaces the thick block separator with a thin black line.
@@ -51,6 +47,16 @@ for a list of recommended scripts.
 
 - Set the zoom level to 130%, making the text more readable.
 - 🐞 Can cause issues with modal placement.
+
+### Accessibility
+
+#### 📜 [Focus Outlines](https://github.com/cityssm/userscripts/raw/main/fasterWeb/focusOutlines.user.js)
+
+- Increases accessibility by outlining actionable elements on hover and keyboard focus.
+
+#### 📜 [Remove Tab Index](https://github.com/cityssm/userscripts/raw/main/fasterWeb/tabIndexRemove.user.js)
+
+- Removes overridden tab-key ordering, which makes it difficult to track the cursor when using the keyboard for navigation.
 
 ### Autocompletes
 
