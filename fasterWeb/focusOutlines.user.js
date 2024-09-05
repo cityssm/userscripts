@@ -3,7 +3,7 @@
 // @namespace    https://github.com/cityssm/userscripts
 // @match        https://*.fasterwebcloud.com/FASTER/*
 // @grant        none
-// @version      1.0.0
+// @version      1.1.0
 // @author       The Corporation of the City of Sault Ste. Marie
 // @description  Increases accessibility by outlining actionable elements on hover and keyboard focus.
 // @run-at       document-end
@@ -16,7 +16,9 @@
 (() => {
     document.head.insertAdjacentHTML('beforeend', `<style>
       a:focus,
-      a:hover {
+      a:hover,
+      span[tabindex]:focus,
+      span[tabindex]:hover {
         outline-color: black;
         outline-offset: 3px;                    
         outline-style: dashed !important;
