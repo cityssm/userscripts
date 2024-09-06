@@ -3,7 +3,7 @@
 // @namespace      https://github.com/cityssm/userscripts
 // @match          https://*.fasterwebcloud.com/FASTER/*
 // @grant          none
-// @version        1.0.0
+// @version        1.0.1
 // @author         The Corporation of the City of Sault Ste. Marie
 // @description    Removes overridden tab-key ordering, which makes it difficult to track the cursor when using the keyboard for navigation.
 // @run-at         document-end
@@ -24,7 +24,6 @@
     const removeTabIndex = () => {
         const elements = document.querySelectorAll('[tabindex]:not([tabindex="0"]):not([tabindex="-1"])');
         for (const element of elements) {
-            console.log(element);
             if (focusableElementTagNames.includes(element.tagName)) {
                 element.removeAttribute('tabindex');
             }
