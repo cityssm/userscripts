@@ -64,6 +64,9 @@ for a list of recommended scripts.
 
 - Disables certain drag-and-drop features, like rearranging windows, to improve usability on touchscreens.
 
+#### 📜 [Set Viewport](https://github.com/cityssm/userscripts/raw/main/fasterWeb/setViewport.user.js)
+
+- Attempts to reduce the amount of zooming required on smaller screens.
 ### Autocompletes
 
 ![Item Number Autocomplete](./fasterWeb/docs/itemNumberAutocomplete.png)
