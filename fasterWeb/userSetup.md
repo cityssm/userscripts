@@ -14,11 +14,11 @@ some are more useful than others, depending on your role.
 
 Those whose main job is to issue parts on work orders and direct charges.
 
+- [Drag Disable](dragDisable.user.js)
 - [Exact Match Default](exactMatch.user.js)
 - [Maintenance - Work Order / Direct Charge Default Parts Tab](workOrderDefaultPartsTab.user.js)
 - [Other Field Default](searchDefaultOtherField.user.js)
 
 ### Sault Ste. Marie Storeroom Staff
 
-- [Drag Disable](dragDisable.user.js)
 - [Field Validation](ssmFieldValidation.user.js)
