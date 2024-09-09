@@ -33,6 +33,10 @@ for a list of recommended scripts.
 
 - Loads search results immediately on Advanced Search and other search pages.
 
+#### 📜 [Advanced Search Action Links](https://github.com/cityssm/userscripts/raw/main/fasterWeb/advancedSearchActions.user.js)
+
+- Includes easier-to-click links to the advanced search pages in the Actions menus.
+
 #### 📜 [Domain Tabs](https://github.com/cityssm/userscripts/raw/main/fasterWeb/domainLinks.user.js)
 
 - Updates domain tabs to default to Advanced Search pages.
