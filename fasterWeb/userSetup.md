@@ -20,4 +20,5 @@ Those whose main job is to issue parts on work orders and direct charges.
 
 ### Sault Ste. Marie Storeroom Staff
 
+- [Drag Disable](dragDisable.user.js)
 - [Field Validation](ssmFieldValidation.user.js)

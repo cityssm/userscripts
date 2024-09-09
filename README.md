@@ -9,6 +9,8 @@ They will likely work with other userscript extensions, like Greasemonkey, Tampe
 
 ❗ **Always remember! Only install Userscripts you completely trust!**
 
+---
+
 ## Userscripts for FASTER Web
 
 [FASTER Web](https://fasterasset.com/products/fleet-management-software/) is a cloud-based, fleet management information system (FMIS).
@@ -48,7 +50,7 @@ for a list of recommended scripts.
 - Set the zoom level to 130%, making the text more readable.
 - 🐞 Can cause issues with modal placement.
 
-### Accessibility
+### Accessibility / Usability
 
 #### 📜 [Focus Outlines](https://github.com/cityssm/userscripts/raw/main/fasterWeb/focusOutlines.user.js)
 
@@ -57,6 +59,10 @@ for a list of recommended scripts.
 #### 📜 [Remove Tab Index](https://github.com/cityssm/userscripts/raw/main/fasterWeb/tabIndexRemove.user.js)
 
 - Removes overridden tab-key ordering, which makes it difficult to track the cursor when using the keyboard for navigation.
+
+#### 📜 [Drag Disable](https://github.com/cityssm/userscripts/raw/main/fasterWeb/dragDisable.user.js)
+
+- Disables certain drag-and-drop features, like rearranging windows, to improve usability on touchscreens.
 
 ### Autocompletes
 
@@ -115,6 +121,8 @@ for a list of recommended scripts.
 ![Reports - Remove "Basic Print"](./fasterWeb/docs/reportHideBasicPrint.png)
 
 - Removes the unsupported "Basic Print" button.
+
+---
 
 ## Userscripts for Spiceworks
 
