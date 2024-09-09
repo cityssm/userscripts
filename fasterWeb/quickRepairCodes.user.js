@@ -4,7 +4,9 @@
 // @match          https://*.fasterwebcloud.com/FASTER/Domains/Maintenance/DirectCharge/RepairAdd.aspx
 // @grant          GM_getValue
 // @grant          GM_setValue
-// @version        0.1.0-dev
+// @grant          GM_registerMenuCommand
+// @grant          GM_unregisterMenuCommand
+// @version        0.2.0-dev
 // @author         The Corporation of the City of Sault Ste. Marie
 // @description    Simplifies adding commonly used repair codes to direct charges.
 // @run-at         document-end
@@ -71,12 +73,35 @@
         await sleep();
         await populateComboBoxField(selectors.component, repairDescription.component, true);
     }
-    const buttonId = 'userScript_quickCodeButton';
-    (_b = (_a = document
-        .querySelector('#CancelTopLinkButton')) === null || _a === void 0 ? void 0 : _a.parentElement) === null || _b === void 0 ? void 0 : _b.insertAdjacentHTML('afterend', `<td class="ButtonSeparator">
-        <button class="rfdSkinnedButton" id="${buttonId}" type="button">Set Quick Code</button>
-        </td>`);
-    (_c = document.querySelector(`#${buttonId}`)) === null || _c === void 0 ? void 0 : _c.addEventListener('click', () => {
+    /*
+     * Add menu item
+     */
+    const runOnOpenKey = 'fasterWeb_runOnOpen';
+    let runOnOpenToggleId = -1;
+    let runOnOpen = GM_getValue(runOnOpenKey, false);
+    function registerMenuCommand() {
+        runOnOpenToggleId = GM_registerMenuCommand(runOnOpen ? 'Disable Run on Open' : 'Enable Run on Open', () => {
+            runOnOpen = !runOnOpen;
+            GM_setValue(runOnOpenKey, runOnOpen);
+            GM_unregisterMenuCommand(runOnOpenToggleId);
+            registerMenuCommand();
+        });
+    }
+    registerMenuCommand();
+    /*
+     * Add button or run on open
+     */
+    if (runOnOpen) {
         void setRepairCodeFields();
-    });
+    }
+    else {
+        const buttonId = 'userScript_quickCodeButton';
+        (_b = (_a = document
+            .querySelector('#CancelTopLinkButton')) === null || _a === void 0 ? void 0 : _a.parentElement) === null || _b === void 0 ? void 0 : _b.insertAdjacentHTML('afterend', `<td class="ButtonSeparator">
+          <button class="rfdSkinnedButton" id="${buttonId}" type="button">Set Quick Code</button>
+          </td>`);
+        (_c = document.querySelector(`#${buttonId}`)) === null || _c === void 0 ? void 0 : _c.addEventListener('click', () => {
+            void setRepairCodeFields();
+        });
+    }
 })();
