@@ -108,6 +108,13 @@ for a list of recommended scripts.
 
 - Stops the header from changing sizes between work order and direct charge tabs.
 
+#### 📜 [Maintenance - Quick Repair Codes](https://github.com/cityssm/userscripts/raw/main/fasterWeb/quickRepairCodes.user.js)
+
+![Quick Repair Codes](fasterWeb/docs/quickRepairCodes.png)
+
+- Simplifies adding commonly used repair codes to direct charges.
+- **Under testing and development.** Final behaviour may change!
+
 ### Reports
 
 #### 📜 [Reports - Highlight Favourites](https://github.com/cityssm/userscripts/raw/main/fasterWeb/reportFavourites.user.js)

@@ -1,12 +1,12 @@
 // ==UserScript==
-// @name           FASTER Web - Quick Repair Codes
+// @name           FASTER Web - Maintenance - Quick Repair Codes
 // @namespace      https://github.com/cityssm/userscripts
 // @match          https://*.fasterwebcloud.com/FASTER/Domains/Maintenance/DirectCharge/RepairAdd.aspx
 // @grant          GM_getValue
 // @grant          GM_setValue
-// @version        1.0.0
+// @version        0.1.0-dev
 // @author         The Corporation of the City of Sault Ste. Marie
-// @description    Simplifies adding commonly used repair codes.
+// @description    Simplifies adding commonly used repair codes to direct charges.
 // @run-at         document-end
 // @downloadURL    https://raw.githubusercontent.com/cityssm/userscripts/main/fasterWeb/quickRepairCodes.user.js
 // @supportURL     https://github.com/cityssm/userscripts/issues
@@ -69,6 +69,10 @@ interface RepairDescription {
 
     const comboboxItems = comboboxControl.get_items().toArray()
 
+    if (comboboxItems.length > 0) {
+      comboboxItems[0].select()
+    }
+
     for (const comboboxItem of comboboxItems) {
       if (comboboxItem.get_text() === value) {
         comboboxItem.select()
@@ -93,7 +97,6 @@ interface RepairDescription {
     )
 
     await sleep()
-
     ;(
       document.querySelector('#' + selectors.isBillable) as HTMLInputElement
     ).checked = repairDescription.isBillable
@@ -118,5 +121,18 @@ interface RepairDescription {
     )
   }
 
-  void setRepairCodeFields()
+  const buttonId = 'userScript_quickCodeButton'
+
+  document
+    .querySelector('#CancelTopLinkButton')
+    ?.parentElement?.insertAdjacentHTML(
+      'afterend',
+      `<td class="ButtonSeparator">
+        <button class="rfdSkinnedButton" id="${buttonId}" type="button">Set Quick Code</button>
+        </td>`
+    )
+
+  document.querySelector(`#${buttonId}`)?.addEventListener('click', () => {
+    void setRepairCodeFields()
+  })
 })()
