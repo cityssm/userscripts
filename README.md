@@ -45,11 +45,6 @@ for a list of recommended scripts.
 
 - Improves print-friendliness by only printing the content area.
 
-#### 📜 [Increase Font Sizes](https://github.com/cityssm/userscripts/raw/main/fasterWeb/biggerText.user.js)
-
-- Set the zoom level to 130%, making the text more readable.
-- 🐞 Can cause issues with modal placement.
-
 ### Accessibility / Usability
 
 #### 📜 [Focus Outlines](https://github.com/cityssm/userscripts/raw/main/fasterWeb/focusOutlines.user.js)
@@ -67,6 +62,12 @@ for a list of recommended scripts.
 #### 📜 [Set Viewport](https://github.com/cityssm/userscripts/raw/main/fasterWeb/setViewport.user.js)
 
 - Attempts to reduce the amount of zooming required on smaller screens.
+
+#### 📜 [Increase Font Sizes](https://github.com/cityssm/userscripts/raw/main/fasterWeb/biggerText.user.js)
+
+- Set the zoom level to 130%, making the text more readable.
+- 🐞 Can cause issues with modal placement.
+
 ### Autocompletes
 
 ![Item Number Autocomplete](./fasterWeb/docs/itemNumberAutocomplete.png)
