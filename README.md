@@ -63,6 +63,10 @@ for a list of recommended scripts.
 
 - Disables certain drag-and-drop features, like rearranging windows, to improve usability on touchscreens.
 
+#### 📜 [Bigger Click Targets](https://github.com/cityssm/userscripts/raw/main/fasterWeb/biggerClickTargets.user.js)
+
+- Increases the size of some click targets, increasing usability on smaller screens.
+
 #### 📜 [Set Viewport](https://github.com/cityssm/userscripts/raw/main/fasterWeb/setViewport.user.js)
 
 - Attempts to reduce the amount of zooming required on smaller screens.
