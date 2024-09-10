@@ -3,7 +3,7 @@
 // @namespace    https://github.com/cityssm/userscripts
 // @match        https://*.fasterwebcloud.com/FASTER/*
 // @grant        GM_addStyle
-// @version      0.3.1-dev
+// @version      0.4.0-dev
 // @author       The Corporation of the City of Sault Ste. Marie
 // @description  Increases the size of some click targets, increasing usability on smaller screens.
 // @run-at       document-end
@@ -46,26 +46,46 @@
     /*
      * Remove inline height styles
      */
+    const observerSelectors = [
+        '#RAD_SPLITTER_PANE_CONTENT_ctl00_ContentPlaceHolder_Content_TopRadPane'
+    ];
     const selectors = [
-        '#RAD_SPLITTER_PANE_CONTENT_ctl00_RadPane_Top',
-        '#RAD_SPLITTER_PANE_CONTENT_ctl00_ContentPlaceHolder_Content_TopRadPane',
+        ...observerSelectors,
+        '#RAD_SPLITTER_PANE_CONTENT_ctl00_ContentPlaceHolder_Content_ActivateOrganizationTopRadPane',
+        '#RAD_SPLITTER_PANE_CONTENT_ctl00_ContentPlaceHolder_Content_AssetOverrideTopRadPane',
+        '#RAD_SPLITTER_PANE_CONTENT_ctl00_ContentPlaceHolder_Content_BillingTypeTopRadPane',
+        '#RAD_SPLITTER_PANE_CONTENT_ctl00_ContentPlaceHolder_Content_ChargeTypeandElementTopRadPane',
+        '#RAD_SPLITTER_PANE_CONTENT_ctl00_ContentPlaceHolder_Content_ContactDetailTopRadPane',
+        '#RAD_SPLITTER_PANE_CONTENT_ctl00_ContentPlaceHolder_Content_DepartmentOverrideTopRadPane',
+        '#RAD_SPLITTER_PANE_CONTENT_ctl00_ContentPlaceHolder_Content_GenerateCycleTopRadPane',
+        '#RAD_SPLITTER_PANE_CONTENT_ctl00_ContentPlaceHolder_Content_MiddleRadPane',
         '#RAD_SPLITTER_PANE_CONTENT_ctl00_ContentPlaceHolder_Content_panetop',
         '#RAD_SPLITTER_PANE_CONTENT_ctl00_ContentPlaceHolder_Content_PartOrderSearchTopRadPane',
         '#RAD_SPLITTER_PANE_CONTENT_ctl00_ContentPlaceHolder_Content_ReorderPartTopRadPane',
-        '#RAD_SPLITTER_PANE_CONTENT_ctl00_ContentPlaceHolder_Content_GenerateCycleTopRadPane',
-        '#RAD_SPLITTER_PANE_CONTENT_ctl00_ContentPlaceHolder_Content_ContactDetailTopRadPane',
-        '#RAD_SPLITTER_PANE_CONTENT_ctl00_ContentPlaceHolder_Content_BillingTypeTopRadPane',
-        '#RAD_SPLITTER_PANE_CONTENT_ctl00_ContentPlaceHolder_Content_ActivateOrganizationTopRadPane',
-        '#RAD_SPLITTER_PANE_CONTENT_ctl00_ContentPlaceHolder_Content_ChargeTypeandElementTopRadPane',
-        '#RAD_SPLITTER_PANE_CONTENT_ctl00_ContentPlaceHolder_Content_DepartmentOverrideTopRadPane',
-        '#RAD_SPLITTER_PANE_CONTENT_ctl00_ContentPlaceHolder_Content_AssetOverrideTopRadPane',
-        '#RAD_SPLITTER_PANE_CONTENT_ctl00_ContentPlaceHolder_Content_MiddleRadPane'
+        '#RAD_SPLITTER_PANE_CONTENT_ctl00_RadPane_Top'
     ];
-    for (const selector of selectors) {
-        const element = document.querySelector(selector);
-        if (element !== null) {
-            ;
-            element.style.height = 'auto';
+    function removeHeights(observerOnly = false) {
+        for (const selector of observerOnly ? observerSelectors : selectors) {
+            const element = document.querySelector(selector);
+            if (element !== null) {
+                ;
+                element.style.height = 'auto';
+            }
         }
+    }
+    removeHeights(false);
+    /*
+     * Set up observer
+     */
+    const observerElement = document.querySelector(observerSelectors.join(', '));
+    if (observerElement !== null) {
+        const observer = new MutationObserver(() => {
+            removeHeights(true);
+        });
+        observer.observe(document, {
+            attributes: true,
+            attributeFilter: ['style'],
+            subtree: true
+        });
     }
 })();
