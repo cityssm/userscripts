@@ -13,9 +13,14 @@
 // @match        https://*.fasterwebcloud.com/FASTER/Domains/Maintenance/DirectCharge/Search/Default.aspx
 // @match        https://*.fasterwebcloud.com/FASTER/Domains/Fuel/Search/Default.aspx
 // @match        https://*.fasterwebcloud.com/FASTER/Domains/Accounting/Search/Default.aspx
+// @match        https://*.fasterwebcloud.com/FASTER/Domains/Accounting/CreditCard/Default.aspx
+// @match        https://*.fasterwebcloud.com/FASTER/Domains/Accounting/VendorCredit/Search.aspx
+// @match        https://*.fasterwebcloud.com/FASTER/Domains/Accounting/BillingAdjustment/Default.aspx
+// @match        https://*.fasterwebcloud.com/FASTER/Domains/Accounting/Receivable/Default.aspx
+// @match        https://*.fasterwebcloud.com/FASTER/Domains/Accounting/ManagePayables/Search.aspx
 // @match        https://*.fasterwebcloud.com/FASTER/Domains/Vendors/Search/Default.aspx
 // @grant        none
-// @version      1.1.1
+// @version      1.1.2
 // @author       The Corporation of the City of Sault Ste. Marie
 // @description  Loads search results immediately on Advanced Search and other search pages.
 // @run-at       document-end
@@ -34,10 +39,11 @@
     try {
       ;(
         document.querySelector(
-          'a.rfdSkinnedButton input[type="submit"], input.rbDecorated[type="submit"]'
+          'a.rfdSkinnedButton input[type="submit"], input.rbDecorated[type="submit"], #ctl00_ContentPlaceHolder_Content_SearchCriteriaRadDock_C_SearchButton, #ctl00_ContentPlaceHolder_Content_BillingAdjustmentSearchRadDock_C_SearchButton'
         ) as HTMLInputElement
       ).click()
     } catch {
+    } finally {
       document.body.style.opacity = '1'
     }
   }
