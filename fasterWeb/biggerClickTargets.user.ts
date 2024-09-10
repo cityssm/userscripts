@@ -14,29 +14,47 @@
 // ==/UserScript==
 
 ;(() => {
-  GM_addStyle(`
-    /* Action Menus */
-    
-    #ctl00_RadPane_Menu .RadMenu_Outlook a.rmLink,
-    #ctl00_RadPane_Menu .RadMenu_Outlook a.rmLink:hover,
-    #ctl00_RadPane_Menu .RadMenu_Outlook .rmText {
+  const selectedYellow = '#ffd69a'
+
+  GM_addStyle(`  
+    .RadMenu_Outlook .rmLink,
+    .RadMenu_Outlook .rmLink:hover,
+    .RadMenu_Outlook .rmText {
       background-image: none !important;
     }
 
-    #ctl00_RadPane_Menu .RadMenu_Outlook a.rmLink {
-      border-top: 1px solid transparent;
-      border-bottom: 1px solid transparent;
+    .RadMenu_Outlook .rmLink {
+      border: 1px solid transparent;
+    }
+
+    #ctl00_RadPane_Menu .RadMenu_Outlook .rmLink {
+      border-width: 1px 0;
     }
     
-    #ctl00_RadPane_Menu .RadMenu_Outlook a.rmLink .rmText {
-      padding-top: 5px;
-      padding-bottom: 5px;
+    .RadMenu_Outlook .rmText,
+    .RadMenu_Outlook .rmHorizontal .rmText {
+      padding-top: 5px !important;
+      padding-bottom: 5px !important;
     }
       
-    #ctl00_RadPane_Menu .RadMenu_Outlook a.rmLink.rmFocused,
-    #ctl00_RadPane_Menu .RadMenu_Outlook a.rmLink:hover,
-    #ctl00_RadPane_Menu .RadMenu_Outlook a.rmLink:focus {
-      background-color: #ffd69a;
+    .RadMenu_Outlook .rmLink.rmFocused,
+    .RadMenu_Outlook .rmLink:hover,
+    .RadMenu_Outlook .rmLink:focus {
+      background-color: ${selectedYellow};
       border-color: black;
     }`)
+
+  /*
+   * Remove inline height styles
+   */
+
+  const selectors = ['#RAD_SPLITTER_PANE_CONTENT_ctl00_RadPane_Top', '#RAD_SPLITTER_PANE_CONTENT_ctl00_ContentPlaceHolder_Content_MiddleRadPane']
+
+  for (const selector of selectors) {
+    const element = document.querySelector(selector)
+
+    if (element !== null) {
+      ;(element as HTMLElement).style.height = 'auto'
+    }
+  }
 })()
