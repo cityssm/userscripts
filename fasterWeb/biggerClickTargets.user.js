@@ -3,7 +3,7 @@
 // @namespace    https://github.com/cityssm/userscripts
 // @match        https://*.fasterwebcloud.com/FASTER/*
 // @grant        GM_addStyle
-// @version      0.3.0-dev
+// @version      0.3.1-dev
 // @author       The Corporation of the City of Sault Ste. Marie
 // @description  Increases the size of some click targets, increasing usability on smaller screens.
 // @run-at       document-end
@@ -54,6 +54,11 @@
         '#RAD_SPLITTER_PANE_CONTENT_ctl00_ContentPlaceHolder_Content_ReorderPartTopRadPane',
         '#RAD_SPLITTER_PANE_CONTENT_ctl00_ContentPlaceHolder_Content_GenerateCycleTopRadPane',
         '#RAD_SPLITTER_PANE_CONTENT_ctl00_ContentPlaceHolder_Content_ContactDetailTopRadPane',
+        '#RAD_SPLITTER_PANE_CONTENT_ctl00_ContentPlaceHolder_Content_BillingTypeTopRadPane',
+        '#RAD_SPLITTER_PANE_CONTENT_ctl00_ContentPlaceHolder_Content_ActivateOrganizationTopRadPane',
+        '#RAD_SPLITTER_PANE_CONTENT_ctl00_ContentPlaceHolder_Content_ChargeTypeandElementTopRadPane',
+        '#RAD_SPLITTER_PANE_CONTENT_ctl00_ContentPlaceHolder_Content_DepartmentOverrideTopRadPane',
+        '#RAD_SPLITTER_PANE_CONTENT_ctl00_ContentPlaceHolder_Content_AssetOverrideTopRadPane',
         '#RAD_SPLITTER_PANE_CONTENT_ctl00_ContentPlaceHolder_Content_MiddleRadPane'
     ];
     for (const selector of selectors) {
