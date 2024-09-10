@@ -9,6 +9,16 @@ They will likely work with other userscript extensions, like Greasemonkey, Tampe
 
 ❗ **Always remember! Only install Userscripts you completely trust!**
 
+## Userscript Categories
+
+| Icon | Category                                                  |
+| ---- | --------------------------------------------------------- |
+| ⭐   | Recommended                                               |
+| 🐇   | Increases speed or efficiency                             |
+| 🧑‍🦽‍➡️   | Increases accessibility                                   |
+| 📱   | Increases usability on mobile devices and smaller screens |
+| 🐉   | Under development or buggy (_Thar be dragons!_)           |
+
 ---
 
 ## Userscripts for FASTER Web
@@ -16,71 +26,44 @@ They will likely work with other userscript extensions, like Greasemonkey, Tampe
 [FASTER Web](https://fasterasset.com/products/fleet-management-software/) is a cloud-based, fleet management information system (FMIS).
 It can be used to track assets, maintenance on those assets, and parts inventory used by those assets.
 
-**Overwhelmed?** See [Suggested FASTER Web Userscripts by User Role](./fasterWeb/userSetup.md)
+- [All Sections](#all-sections-of-faster-web)
+- [User Experience](#user-experience-changes-and-improvements-for-faster-web)
+- [Autocomplete Helpers](#autocomplete-helpers-for-faster-web)
+- [Domain Specific](#faster-web-domain-specific)
+- [Sault Ste. Marie Specific](#sault-ste-marie-specific-userscripts-for-faster-web)
+
+**Overwhelmed?**
+See [Suggested FASTER Web Userscripts by User Role](./fasterWeb/userSetup.md)
 for a list of recommended scripts.
 
-### All Sections
+### All Sections of FASTER Web
 
-#### 📜 [Exact Match Default](https://github.com/cityssm/userscripts/raw/main/fasterWeb/exactMatch.user.js)
+| Script                                                                                                                                                                                                          | Categories |
+| --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------- |
+| [Advanced Search Action Links](https://github.com/cityssm/userscripts/raw/main/fasterWeb/advancedSearchActions.user.js)<br /> Includes easier-to-click links to the advanced search pages in the Actions menus. | 📱         |
+| [Advanced Search Results](https://github.com/cityssm/userscripts/raw/main/fasterWeb/advancedSearchResults.user.js)<br /> Loads search results immediately on Advanced Search and other search pages.            | 🐇         |
+| [Domain Tabs](https://github.com/cityssm/userscripts/raw/main/fasterWeb/domainLinks.user.js)<br /> Updates domain tabs to default to Advanced Search pages.                                                     |            |
+| [Exact Match Default](https://github.com/cityssm/userscripts/raw/main/fasterWeb/exactMatch.user.js)<br /> Remembers the last used "Exact Match" checkbox setting by domain in the menu search.                  | 🐇         |
+| [Other Field Default](https://github.com/cityssm/userscripts/raw/main/fasterWeb/searchDefaultOtherField.user.js)<br /> Remembers the last used "Other" field in search filters.                                 | 🐇         |
+| [Print Friendly](https://github.com/cityssm/userscripts/raw/main/fasterWeb/printFriendly.user.js)<br /> Improves print-friendliness by only printing the content area.                                          |            |
 
-- Remembers the last used "Exact Match" checkbox setting by domain in the menu search.
+### User Experience Changes and Improvements for FASTER Web
 
-#### 📜 [Other Field Default](https://github.com/cityssm/userscripts/raw/main/fasterWeb/searchDefaultOtherField.user.js)
+| Script                                                                                                                                                                                                                               | Categories |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------- |
+| [Bigger Click Targets](https://github.com/cityssm/userscripts/raw/main/fasterWeb/biggerClickTargets.user.js)<br /> Increases the size of some click targets, increasing usability on smaller screens.                                | ⭐ 🧑‍🦽‍➡️ 📱   |
+| [Drag Disable](https://github.com/cityssm/userscripts/raw/main/fasterWeb/dragDisable.user.js)<br /> Disables certain drag-and-drop features, like rearranging windows, to improve usability on touchscreens.                         | 📱         |
+| [Focus Outlines](https://github.com/cityssm/userscripts/raw/main/fasterWeb/focusOutlines.user.js)<br /> Increases accessibility by outlining actionable elements on hover and keyboard focus.                                        | 🧑‍🦽‍➡️         |
+| [Horizontal Menu Separators](https://github.com/cityssm/userscripts/raw/main/fasterWeb/horizontalMenuSeparator.user.js)<br /> Replaces the thick block separator with a thin black line.                                             |            |
+| [Increase Font Sizes](https://github.com/cityssm/userscripts/raw/main/fasterWeb/biggerText.user.js)<br /> Set the zoom level to 130%, making the text more readable. (Can cause issues with modal placement.)                        | 🐉         |
+| [Remove Tab Index](https://github.com/cityssm/userscripts/raw/main/fasterWeb/tabIndexRemove.user.js)<br /> Removes overridden tab-key ordering, which makes it difficult to track the cursor when using the keyboard for navigation. | 🧑‍🦽‍➡️         |
+| [Set Viewport](https://github.com/cityssm/userscripts/raw/main/fasterWeb/setViewport.user.js)<br /> Attempts to reduce the amount of zooming required on smaller screens.                                                            | 📱         |
 
-- Remembers the last used "Other" field in search filters.
-
-#### 📜 [Advanced Search Results](https://github.com/cityssm/userscripts/raw/main/fasterWeb/advancedSearchResults.user.js)
-
-- Loads search results immediately on Advanced Search and other search pages.
-
-#### 📜 [Advanced Search Action Links](https://github.com/cityssm/userscripts/raw/main/fasterWeb/advancedSearchActions.user.js)
-
-- Includes easier-to-click links to the advanced search pages in the Actions menus.
-
-#### 📜 [Domain Tabs](https://github.com/cityssm/userscripts/raw/main/fasterWeb/domainLinks.user.js)
-
-- Updates domain tabs to default to Advanced Search pages.
-
-#### 📜 [Horizontal Menu Separators](https://github.com/cityssm/userscripts/raw/main/fasterWeb/horizontalMenuSeparator.user.js)
-
-- Replaces the thick block separator with a thin black line.
-
-#### 📜 [Print Friendly](https://github.com/cityssm/userscripts/raw/main/fasterWeb/printFriendly.user.js)
-
-- Improves print-friendliness by only printing the content area.
-
-### Accessibility / Usability
-
-#### 📜 [Focus Outlines](https://github.com/cityssm/userscripts/raw/main/fasterWeb/focusOutlines.user.js)
-
-- Increases accessibility by outlining actionable elements on hover and keyboard focus.
-
-#### 📜 [Remove Tab Index](https://github.com/cityssm/userscripts/raw/main/fasterWeb/tabIndexRemove.user.js)
-
-- Removes overridden tab-key ordering, which makes it difficult to track the cursor when using the keyboard for navigation.
-
-#### 📜 [Drag Disable](https://github.com/cityssm/userscripts/raw/main/fasterWeb/dragDisable.user.js)
-
-- Disables certain drag-and-drop features, like rearranging windows, to improve usability on touchscreens.
-
-#### 📜 [Bigger Click Targets](https://github.com/cityssm/userscripts/raw/main/fasterWeb/biggerClickTargets.user.js)
-
-- Increases the size of some click targets, increasing usability on smaller screens.
-
-#### 📜 [Set Viewport](https://github.com/cityssm/userscripts/raw/main/fasterWeb/setViewport.user.js)
-
-- Attempts to reduce the amount of zooming required on smaller screens.
-
-#### 📜 [Increase Font Sizes](https://github.com/cityssm/userscripts/raw/main/fasterWeb/biggerText.user.js)
-
-- Set the zoom level to 130%, making the text more readable.
-- 🐞 Can cause issues with modal placement.
-
-### Autocompletes
+### Autocomplete Helpers for FASTER Web
 
 ![Item Number Autocomplete](./fasterWeb/docs/itemNumberAutocomplete.png)
 
-#### 📜 [Asset Number Autocomplete](https://github.com/cityssm/userscripts/raw/main/fasterWeb/assetNumberAutocomplete.user.js)
+[Asset Number Autocomplete](https://github.com/cityssm/userscripts/raw/main/fasterWeb/assetNumberAutocomplete.user.js)
 
 - Adds autocomplete suggestions to **asset number** input fields.
 - Define "assetNumbers.json" URL in options.
@@ -88,7 +71,7 @@ for a list of recommended scripts.
   or use the [FASTER Web Helper service](https://github.com/cityssm/faster-web-helper) to generate it for you
   from a scheduled report.
 
-#### 📜 [Item Number Autocomplete](https://github.com/cityssm/userscripts/raw/main/fasterWeb/itemNumberAutocomplete.user.js)
+[Item Number Autocomplete](https://github.com/cityssm/userscripts/raw/main/fasterWeb/itemNumberAutocomplete.user.js)
 
 - Adds autocomplete suggestions to **item number** input fields.
 - Define "itemNumbers.json" URL in options.
@@ -96,50 +79,24 @@ for a list of recommended scripts.
   or use the [FASTER Web Helper service](https://github.com/cityssm/faster-web-helper) to generate it for you
   from a scheduled report.
 
-### Sault Ste. Marie Specific
+### FASTER Web Domain Specific
 
-#### 📜 [Field Validation](https://github.com/cityssm/userscripts/raw/main/fasterWeb/ssmFieldValidation.user.js)
+| Domain      | Script                                                                                                                                                                                                                                                                              | Categories |
+| ----------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------- |
+| Home        | [Home - Link to Userscripts](https://github.com/cityssm/userscripts/raw/main/fasterWeb/homeLinkToUserscripts.user.js)<br /> Adds a link to the City's Userscripts page to the Actions menu.<br /> ![Home Link to Userscripts](./fasterWeb/docs/homeLinkToUserscripts.png)           |            |
+| Maintenance | [Maintenance - Work Order / Direct Charge Default Parts Tab](https://github.com/cityssm/userscripts/raw/main/fasterWeb/workOrderDefaultPartsTab.user.js)<br /> Changes the default tab to "Parts" when opening a work order or direct charge, helping storeroom staff save a click. | 🐇         |
+| Maintenance | [Maintenance - Work Order / Direct Charge Header Height](https://github.com/cityssm/userscripts/raw/main/fasterWeb/workOrderHeaderHeight.user.js)<br /> Stops the header from changing sizes between work order and direct charge tabs.                                             | ⭐         |
+| Maintenance | [Maintenance - Quick Repair Codes](https://github.com/cityssm/userscripts/raw/main/fasterWeb/quickRepairCodes.user.js)<br /> Simplifies adding commonly used repair codes to direct charges.<br /> ![Quick Repair Codes](fasterWeb/docs/quickRepairCodes.png)                       | 🐉         |
+| Reports     | [Reports - Highlight Favourites](https://github.com/cityssm/userscripts/raw/main/fasterWeb/reportFavourites.user.js)<br /> Makes favourite reports easier to find.<br /> ![Highlight Favourites](./fasterWeb/docs/reportFavourites.png)                                             | 🐇         |
+| Reports     | [Reports - Remove "Basic Print"](https://github.com/cityssm/userscripts/raw/main/fasterWeb/reportHideBasicPrint.user.js)<br /> Removes the unsupported "Basic Print" button.<br /> ![Reports - Remove "Basic Print"](./fasterWeb/docs/reportHideBasicPrint.png)                     | ⭐ 🐇      |
 
-- Enforces field validation as per Sault Ste. Marie's requirements.
+### Sault Ste. Marie Specific Userscripts for FASTER Web
 
-### Home
+Probably not much value outside of Sault Ste. Marie.
 
-#### 📜 [Home - Link to Userscripts](https://github.com/cityssm/userscripts/raw/main/fasterWeb/homeLinkToUserscripts.user.js)
-
-![Home Link to Userscripts](./fasterWeb/docs/homeLinkToUserscripts.png)
-
-- Adds a link to the City's Userscripts page to the Actions menu.
-
-### Maintenance
-
-#### 📜 [Maintenance - Work Order / Direct Charge Default Parts Tab](https://github.com/cityssm/userscripts/raw/main/fasterWeb/workOrderDefaultPartsTab.user.js)
-
-- Changes the default tab to "Parts" when opening a work order or direct charge, helping storeroom staff save a click.
-
-#### 📜 [Maintenance - Work Order / Direct Charge Header Height](https://github.com/cityssm/userscripts/raw/main/fasterWeb/workOrderHeaderHeight.user.js)
-
-- Stops the header from changing sizes between work order and direct charge tabs.
-
-#### 📜 [Maintenance - Quick Repair Codes](https://github.com/cityssm/userscripts/raw/main/fasterWeb/quickRepairCodes.user.js)
-
-![Quick Repair Codes](fasterWeb/docs/quickRepairCodes.png)
-
-- Simplifies adding commonly used repair codes to direct charges.
-- **Under testing and development.** Final behaviour may change!
-
-### Reports
-
-#### 📜 [Reports - Highlight Favourites](https://github.com/cityssm/userscripts/raw/main/fasterWeb/reportFavourites.user.js)
-
-![Highlight Favourites](./fasterWeb/docs/reportFavourites.png)
-
-- Makes favourite reports easier to find.
-
-#### 📜 [Reports - Remove "Basic Print"](https://github.com/cityssm/userscripts/raw/main/fasterWeb/reportHideBasicPrint.user.js)<br />
-
-![Reports - Remove "Basic Print"](./fasterWeb/docs/reportHideBasicPrint.png)
-
-- Removes the unsupported "Basic Print" button.
+| Script                                                                                                                                                                           | Categories |
+| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------- |
+| [Field Validation](https://github.com/cityssm/userscripts/raw/main/fasterWeb/ssmFieldValidation.user.js)<br /> Enforces field validation as per Sault Ste. Marie's requirements. | 🐇         |
 
 ---
 
