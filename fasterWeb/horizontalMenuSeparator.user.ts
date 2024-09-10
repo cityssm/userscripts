@@ -5,7 +5,7 @@
 // @exclude-match  https://*.fasterwebcloud.com/FASTER/Login/*
 // @exclude-match  https://*.fasterwebcloud.com/FASTER/Domains/Reports/ReportViewer.aspx
 // @grant          none
-// @version        1.1.1
+// @version        1.2.0
 // @author         The Corporation of the City of Sault Ste. Marie
 // @description    Replaces the thick block separator with a thin black line.
 // @run-at         document-end
@@ -22,8 +22,8 @@
 
   for (const menuSeparatorElement of menuSeparatorElements) {
     menuSeparatorElement.role = 'presentation'
-    menuSeparatorElement.textContent = '|'
-    menuSeparatorElement.style.padding = '0 5px'
+    menuSeparatorElement.innerHTML = '<span class="rmLink"><span class="rmText">|</span></span>'
+    menuSeparatorElement.style.padding = '0 2px'
     menuSeparatorElement.classList.remove('rmSeparator')
   }
 })()
