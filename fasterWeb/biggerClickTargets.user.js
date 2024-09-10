@@ -3,7 +3,7 @@
 // @namespace    https://github.com/cityssm/userscripts
 // @match        https://*.fasterwebcloud.com/FASTER/*
 // @grant        GM_addStyle
-// @version      0.2.0-dev
+// @version      0.2.1-dev
 // @author       The Corporation of the City of Sault Ste. Marie
 // @description  Increases the size of some click targets, increasing usability on smaller screens.
 // @run-at       document-end
@@ -45,7 +45,11 @@
     /*
      * Remove inline height styles
      */
-    const selectors = ['#RAD_SPLITTER_PANE_CONTENT_ctl00_RadPane_Top', '#RAD_SPLITTER_PANE_CONTENT_ctl00_ContentPlaceHolder_Content_MiddleRadPane'];
+    const selectors = [
+        '#RAD_SPLITTER_PANE_CONTENT_ctl00_RadPane_Top',
+        '#RAD_SPLITTER_PANE_CONTENT_ctl00_ContentPlaceHolder_Content_TopRadPane',
+        '#RAD_SPLITTER_PANE_CONTENT_ctl00_ContentPlaceHolder_Content_MiddleRadPane'
+    ];
     for (const selector of selectors) {
         const element = document.querySelector(selector);
         if (element !== null) {
