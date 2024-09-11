@@ -2,8 +2,8 @@
 // @name         FASTER Web - Set Viewport
 // @namespace    https://github.com/cityssm/userscripts
 // @match        https://*.fasterwebcloud.com/FASTER/*
-// @grant        none
-// @version      0.3.1-dev
+// @grant        GM_addElement
+// @version      0.4.0-dev
 // @author       The Corporation of the City of Sault Ste. Marie
 // @description  Attempts to reduce the amount of zooming required on smaller screens.
 // @run-at       document-body
@@ -18,6 +18,11 @@
   const specialViewportWidth = 1100
 
   const specialPages = [
+    '/domains/accounting/billingadjustment/default.aspx',
+    '/domains/accounting/closeoutprocess/default.aspx',
+    '/domains/accounting/creditcard/default.aspx',
+    '/domains/accounting/managepayables/search.aspx',
+    '/domains/accounting/vendorcredit/search.aspx',
     '/domains/assets/search/default.aspx',
     '/domains/fuel/search/default.aspx',
     '/domains/maintenance/directcharge/search/default.aspx',
@@ -29,19 +34,16 @@
 
     let viewportWidth = defaultViewportWidth
 
-
     for (const specialPage of specialPages) {
-      console.log(specialPage)
       if (currentPage.includes(specialPage)) {
-        console.log('special: ' + specialPage)
         viewportWidth = specialViewportWidth
         break
       }
     }
 
-    document.head.insertAdjacentHTML(
-      'beforeend',
-      `<meta name="viewport" content="width=${viewportWidth}" />`
-    )
+    GM_addElement('meta', {
+      name: 'viewport',
+      content: `width=${viewportWidth}`
+    })
   }
 })()
