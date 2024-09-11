@@ -3,7 +3,7 @@
 // @namespace    https://github.com/cityssm/userscripts
 // @match        https://*.fasterwebcloud.com/FASTER/*
 // @grant        GM_addElement
-// @version      0.4.0-dev
+// @version      0.4.1-dev
 // @author       The Corporation of the City of Sault Ste. Marie
 // @description  Attempts to reduce the amount of zooming required on smaller screens.
 // @run-at       document-body
@@ -26,7 +26,8 @@
     '/domains/assets/search/default.aspx',
     '/domains/fuel/search/default.aspx',
     '/domains/maintenance/directcharge/search/default.aspx',
-    '/domains/maintenance/workorder/search/default.aspx'
+    '/domains/maintenance/workorder/search/default.aspx',
+    '/domains/parts/search/partissuesearch.aspx'
   ]
 
   if (document.querySelector('meta[name="viewport"]') === null) {
