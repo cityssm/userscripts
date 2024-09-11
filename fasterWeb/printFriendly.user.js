@@ -4,11 +4,11 @@
 // @match          https://*.fasterwebcloud.com/FASTER/*
 // @exclude-match  https://*.fasterwebcloud.com/FASTER/Login/*
 // @exclude-match  https://*.fasterwebcloud.com/FASTER/Domains/Reports/ReportViewer.aspx
-// @grant          none
-// @version        1.1.1
+// @grant          GM_addStyle
+// @version        1.2.0
 // @author         The Corporation of the City of Sault Ste. Marie
 // @description    Improves print-friendliness by only printing the content area.
-// @run-at         document-end
+// @run-at         document-idle
 // @downloadURL    https://raw.githubusercontent.com/cityssm/userscripts/main/fasterWeb/printFriendly.user.js
 // @supportURL     https://github.com/cityssm/userscripts/issues
 // @homepageURL    https://cityssm.github.io/userscripts/
@@ -19,7 +19,7 @@
     const mainContentAreaId = 'RAD_SPLITTER_PANE_CONTENT_ctl00_RadPane_Content';
     const contentAreaElement = document.querySelector(`#${mainContentAreaId}`);
     if (contentAreaElement !== null) {
-        document.head.insertAdjacentHTML('beforeend', `<style>
+        GM_addStyle(`
         @media print {
           body {
             visibility: hidden;
@@ -75,7 +75,6 @@
           tr.rgCommandRow {
             display: none;
           }
-        }
-      </style>`);
+        }`);
     }
 })();
