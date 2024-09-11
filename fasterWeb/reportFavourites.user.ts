@@ -2,9 +2,10 @@
 // @name         FASTER Web - Reports - Highlight Favourites
 // @namespace    https://github.com/cityssm/userscripts
 // @match        https://*.fasterwebcloud.com/FASTER/Domains/Reports/Default.aspx
+// @grant        GM_addStyle
 // @grant        GM_getValue
 // @grant        GM_setValue
-// @version      1.1.0
+// @version      1.2.0
 // @author       The Corporation of the City of Sault Ste. Marie
 // @description  Makes favourite reports easier to find.
 // @run-at       document-end
@@ -60,9 +61,7 @@
    * Add styles to head
    */
 
-  document.head.insertAdjacentHTML(
-    'beforeend',
-    `<style>
+  GM_addStyle(`
     .${toggleButtonClassName} {
       margin-right: 0.5em;
       font-size: 1.5em;
@@ -79,9 +78,7 @@
       
     contenttemplate:has(.${toggleButtonClassName}[aria-checked='false']) {
       opacity: 0.4;
-    }
-    </style>`
-  )
+    }`)
 
   /*
    * Initialize toggle buttons
