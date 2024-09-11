@@ -3,7 +3,7 @@
 // @namespace    https://github.com/cityssm/userscripts
 // @match        https://*.fasterwebcloud.com/FASTER/*
 // @grant        none
-// @version      0.2.0-dev
+// @version      0.3.0-dev
 // @author       The Corporation of the City of Sault Ste. Marie
 // @description  Attempts to reduce the amount of zooming required on smaller screens.
 // @run-at       document-body
@@ -39,7 +39,7 @@
 
     document.head.insertAdjacentHTML(
       'beforeend',
-      `<meta name="viewport" content="width=${viewportWidth}, initial-scale=1" />`
+      `<meta name="viewport" content="width=${viewportWidth}" />`
     )
   }
 })()
