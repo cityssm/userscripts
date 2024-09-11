@@ -3,9 +3,9 @@
 // @namespace    https://github.com/cityssm/userscripts
 // @match        https://*.fasterwebcloud.com/FASTER/*
 // @grant        GM_addElement
-// @version      1.0.1
+// @version      1.0.2
 // @author       The Corporation of the City of Sault Ste. Marie
-// @description  Sets the viewport to avoid fix broken controls on smaller screens.
+// @description  Sets the viewport to fix broken controls on smaller screens.
 // @run-at       document-body
 // @downloadURL  https://raw.githubusercontent.com/cityssm/userscripts/main/fasterWeb/setViewport.user.js
 // @supportURL   https://github.com/cityssm/userscripts/issues

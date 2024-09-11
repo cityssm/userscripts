@@ -58,7 +58,7 @@ for a list of recommended scripts.
 | [Horizontal Menu Separators](https://github.com/cityssm/userscripts/raw/main/fasterWeb/horizontalMenuSeparator.user.js)<br /> Replaces the thick block separator with a thin black line.                                             | 💋          |
 | [Increase Font Sizes](https://github.com/cityssm/userscripts/raw/main/fasterWeb/biggerText.user.js)<br /> Set the zoom level to 130%, making the text more readable. (Can cause issues with modal placement.)                        | 🐉          |
 | [Remove Tab Index](https://github.com/cityssm/userscripts/raw/main/fasterWeb/tabIndexRemove.user.js)<br /> Removes overridden tab-key ordering, which makes it difficult to track the cursor when using the keyboard for navigation. | 🧑‍🦽‍➡️          |
-| [Set Viewport](https://github.com/cityssm/userscripts/raw/main/fasterWeb/setViewport.user.js)<br /> Sets the viewport to avoid fix broken controls on smaller screens.                                                               | ⭐ 📱       |
+| [Set Viewport](https://github.com/cityssm/userscripts/raw/main/fasterWeb/setViewport.user.js)<br /> Sets the viewport to fix broken controls on smaller screens.                                                               | ⭐ 📱       |
 
 ### Autocomplete Helpers for FASTER Web
 
