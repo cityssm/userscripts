@@ -17,6 +17,7 @@ These userscripts are useful to all users, regardless of their roles.
 Those who use FASTER Web on smaller, touchscreen devices.
 
 - [Bigger Click Targets](biggerClickTargets.user.js)
+- [Assets - Create Asset Width Fix](createAssetWidthFix.user.js)
 - [Drag Disable](dragDisable.user.js)
 - [Set Viewport](setViewport.user.js)
 
