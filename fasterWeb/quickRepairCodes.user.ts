@@ -6,7 +6,7 @@
 // @grant          GM_setValue
 // @grant          GM_registerMenuCommand
 // @grant          GM_unregisterMenuCommand
-// @version        0.3.0-dev
+// @version        0.3.1-dev
 // @author         The Corporation of the City of Sault Ste. Marie
 // @description    Simplifies adding commonly used repair codes to direct charges.
 // @run-at         document-end
@@ -90,8 +90,6 @@ interface RepairDescription {
           ) as HTMLInputElement | null
         )?.value ?? ''
     }
-
-    console.log(currentQuickRepairDescription)
 
     if (
       currentQuickRepairDescription.reason === '' ||
