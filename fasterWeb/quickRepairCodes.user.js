@@ -6,7 +6,7 @@
 // @grant          GM_setValue
 // @grant          GM_registerMenuCommand
 // @grant          GM_unregisterMenuCommand
-// @version        0.2.0-dev
+// @version        0.3.0-dev
 // @author         The Corporation of the City of Sault Ste. Marie
 // @description    Simplifies adding commonly used repair codes to direct charges.
 // @run-at         document-end
@@ -17,7 +17,7 @@
 // ==/UserScript==
 ;
 (() => {
-    var _a, _b, _c;
+    var _a, _b, _c, _d, _e, _f;
     const selectors = {
         reason: 'CcgRepairControl_RepairReasonRadComboBox',
         schedule: 'CcgRepairControl_ScheduleRadComboBox',
@@ -26,16 +26,47 @@
         group: 'CcgRepairControl_GroupComponentActionRadGrid_ctl00_ctl02_ctl02_GroupDescRadComboBox',
         component: 'CcgRepairControl_GroupComponentActionRadGrid_ctl00_ctl02_ctl02_ComponentDescRadComboBox'
     };
-    const quickRepairDescriptions = [
+    const quickRepairDescriptionsKey = 'fasterWeb_quickRepairDescriptions';
+    let quickRepairDescriptions = GM_getValue(quickRepairDescriptionsKey, [
         {
             reason: 'General Repair',
-            schedule: 'Non Scheduled',
+            schedule: 'Non-Scheduled',
             isBillable: false,
             action: 'Parts Issue',
-            group: 'Inventory Activity',
-            component: 'System'
+            group: 'Indirect Labor',
+            component: 'Meeting Time'
         }
-    ];
+    ]);
+    function saveQuickRepairDescription() {
+        var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m;
+        const currentQuickRepairDescription = {
+            reason: (_b = (_a = document.querySelector(`#${selectors.reason}`)) === null || _a === void 0 ? void 0 : _a.value) !== null && _b !== void 0 ? _b : '',
+            schedule: (_d = (_c = document.querySelector(`#${selectors.schedule}`)) === null || _c === void 0 ? void 0 : _c.value) !== null && _d !== void 0 ? _d : '',
+            isBillable: (_f = (_e = document.querySelector(`#${selectors.isBillable}`)) === null || _e === void 0 ? void 0 : _e.checked) !== null && _f !== void 0 ? _f : false,
+            action: (_h = (_g = document.querySelector(`#${selectors.action}`)) === null || _g === void 0 ? void 0 : _g.value) !== null && _h !== void 0 ? _h : '',
+            group: (_k = (_j = document.querySelector(`#${selectors.group}`)) === null || _j === void 0 ? void 0 : _j.value) !== null && _k !== void 0 ? _k : '',
+            component: (_m = (_l = document.querySelector(`#${selectors.component}`)) === null || _l === void 0 ? void 0 : _l.value) !== null && _m !== void 0 ? _m : ''
+        };
+        console.log(currentQuickRepairDescription);
+        if (currentQuickRepairDescription.reason === '' ||
+            currentQuickRepairDescription.schedule === '' ||
+            currentQuickRepairDescription.action === '' ||
+            currentQuickRepairDescription.group === '' ||
+            currentQuickRepairDescription.component === '') {
+            alert('Please ensure all five repair code fields (Reason, Schedule, Action, Group, and Component) are populated.');
+            return;
+        }
+        quickRepairDescriptions = [currentQuickRepairDescription];
+        GM_setValue(quickRepairDescriptionsKey, quickRepairDescriptions);
+        alert('Quick Code updated successfully.');
+    }
+    const updateQuickCodeButtonId = 'userScript_updateQuickCodeButton';
+    (_b = (_a = document
+        .querySelector('#CancelTopLinkButton')) === null || _a === void 0 ? void 0 : _a.parentElement) === null || _b === void 0 ? void 0 : _b.insertAdjacentHTML('afterend', `<td class="ButtonSeparator">
+        <button class="rfdSkinnedButton" id="${updateQuickCodeButtonId}" type="button">Update Quick Code</button>
+        </td>`);
+    (_c = document
+        .querySelector(`#${updateQuickCodeButtonId}`)) === null || _c === void 0 ? void 0 : _c.addEventListener('click', saveQuickRepairDescription);
     async function sleep() {
         return new Promise((resolve) => setTimeout(resolve, 300));
     }
@@ -95,12 +126,12 @@
         void setRepairCodeFields();
     }
     else {
-        const buttonId = 'userScript_quickCodeButton';
-        (_b = (_a = document
-            .querySelector('#CancelTopLinkButton')) === null || _a === void 0 ? void 0 : _a.parentElement) === null || _b === void 0 ? void 0 : _b.insertAdjacentHTML('afterend', `<td class="ButtonSeparator">
+        const buttonId = 'userScript_setQuickCodeButton';
+        (_e = (_d = document
+            .querySelector('#CancelTopLinkButton')) === null || _d === void 0 ? void 0 : _d.parentElement) === null || _e === void 0 ? void 0 : _e.insertAdjacentHTML('afterend', `<td class="ButtonSeparator">
           <button class="rfdSkinnedButton" id="${buttonId}" type="button">Set Quick Code</button>
           </td>`);
-        (_c = document.querySelector(`#${buttonId}`)) === null || _c === void 0 ? void 0 : _c.addEventListener('click', () => {
+        (_f = document.querySelector(`#${buttonId}`)) === null || _f === void 0 ? void 0 : _f.addEventListener('click', () => {
             void setRepairCodeFields();
         });
     }

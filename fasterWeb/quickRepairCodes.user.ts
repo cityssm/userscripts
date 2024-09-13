@@ -6,7 +6,7 @@
 // @grant          GM_setValue
 // @grant          GM_registerMenuCommand
 // @grant          GM_unregisterMenuCommand
-// @version        0.2.0-dev
+// @version        0.3.0-dev
 // @author         The Corporation of the City of Sault Ste. Marie
 // @description    Simplifies adding commonly used repair codes to direct charges.
 // @run-at         document-end
@@ -38,16 +38,95 @@ interface RepairDescription {
       'CcgRepairControl_GroupComponentActionRadGrid_ctl00_ctl02_ctl02_ComponentDescRadComboBox'
   }
 
-  const quickRepairDescriptions: RepairDescription[] = [
+  const quickRepairDescriptionsKey = 'fasterWeb_quickRepairDescriptions'
+
+  let quickRepairDescriptions = GM_getValue(quickRepairDescriptionsKey, [
     {
       reason: 'General Repair',
-      schedule: 'Non Scheduled',
+      schedule: 'Non-Scheduled',
       isBillable: false,
       action: 'Parts Issue',
-      group: 'Inventory Activity',
-      component: 'System'
+      group: 'Indirect Labor',
+      component: 'Meeting Time'
     }
-  ]
+  ]) as RepairDescription[]
+
+  function saveQuickRepairDescription() {
+    const currentQuickRepairDescription: RepairDescription = {
+      reason:
+        (
+          document.querySelector(
+            `#${selectors.reason}`
+          ) as HTMLInputElement | null
+        )?.value ?? '',
+      schedule:
+        (
+          document.querySelector(
+            `#${selectors.schedule}`
+          ) as HTMLInputElement | null
+        )?.value ?? '',
+      isBillable:
+        (
+          document.querySelector(
+            `#${selectors.isBillable}`
+          ) as HTMLInputElement | null
+        )?.checked ?? false,
+      action:
+        (
+          document.querySelector(
+            `#${selectors.action}`
+          ) as HTMLInputElement | null
+        )?.value ?? '',
+      group:
+        (
+          document.querySelector(
+            `#${selectors.group}`
+          ) as HTMLInputElement | null
+        )?.value ?? '',
+      component:
+        (
+          document.querySelector(
+            `#${selectors.component}`
+          ) as HTMLInputElement | null
+        )?.value ?? ''
+    }
+
+    console.log(currentQuickRepairDescription)
+
+    if (
+      currentQuickRepairDescription.reason === '' ||
+      currentQuickRepairDescription.schedule === '' ||
+      currentQuickRepairDescription.action === '' ||
+      currentQuickRepairDescription.group === '' ||
+      currentQuickRepairDescription.component === ''
+    ) {
+      alert(
+        'Please ensure all five repair code fields (Reason, Schedule, Action, Group, and Component) are populated.'
+      )
+      return
+    }
+
+    quickRepairDescriptions = [currentQuickRepairDescription]
+
+    GM_setValue(quickRepairDescriptionsKey, quickRepairDescriptions)
+
+    alert('Quick Code updated successfully.')
+  }
+
+  const updateQuickCodeButtonId = 'userScript_updateQuickCodeButton'
+
+  document
+    .querySelector('#CancelTopLinkButton')
+    ?.parentElement?.insertAdjacentHTML(
+      'afterend',
+      `<td class="ButtonSeparator">
+        <button class="rfdSkinnedButton" id="${updateQuickCodeButtonId}" type="button">Update Quick Code</button>
+        </td>`
+    )
+
+  document
+    .querySelector(`#${updateQuickCodeButtonId}`)
+    ?.addEventListener('click', saveQuickRepairDescription)
 
   async function sleep() {
     return new Promise((resolve) => setTimeout(resolve, 300))
@@ -155,7 +234,7 @@ interface RepairDescription {
   if (runOnOpen) {
     void setRepairCodeFields()
   } else {
-    const buttonId = 'userScript_quickCodeButton'
+    const buttonId = 'userScript_setQuickCodeButton'
 
     document
       .querySelector('#CancelTopLinkButton')
