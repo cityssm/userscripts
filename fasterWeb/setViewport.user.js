@@ -3,7 +3,7 @@
 // @namespace    https://github.com/cityssm/userscripts
 // @match        https://*.fasterwebcloud.com/FASTER/*
 // @grant        GM_addElement
-// @version      1.0.2
+// @version      1.0.3
 // @author       The Corporation of the City of Sault Ste. Marie
 // @description  Sets the viewport to fix broken controls on smaller screens.
 // @run-at       document-body
@@ -16,6 +16,6 @@
 (() => {
     GM_addElement('meta', {
         name: 'viewport',
-        content: 'width=1100'
+        content: 'width=1200'
     });
 })();
