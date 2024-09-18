@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "isolatedModules": false,
+    "declaration": true,
+    "noImplicitAny": false,
+    "allowUnreachableCode": false,
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "strictNullChecks": true
+  },
+  "compileOnSave": true,
+  "buildOnSave": true
+}

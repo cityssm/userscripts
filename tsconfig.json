@@ -1,13 +1,7 @@
 {
+  "extends": "./tsconfig.base.json",
   "compilerOptions": {
     "target": "ES2017",
-    "isolatedModules": false,
-    "declaration": true,
-    "noImplicitAny": false,
-    "removeComments": false,
-    "allowUnreachableCode": false,
-    "skipLibCheck": true,
-    "strictNullChecks": true
   },
   "include": ["fasterWeb/*", "spiceworks/*", "globalTypes.ts"],
   "compileOnSave": true,
