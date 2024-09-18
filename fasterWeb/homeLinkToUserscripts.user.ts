@@ -3,7 +3,7 @@
 // @namespace    https://github.com/cityssm/userscripts
 // @match        https://*.fasterwebcloud.com/FASTER/Domains/Home/*.aspx
 // @grant        none
-// @version      1.0.1
+// @version      1.1.0
 // @author       The Corporation of the City of Sault Ste. Marie
 // @description  Adds a link to the City's Userscripts page to the Actions menu.
 // @run-at       document-end
@@ -14,7 +14,9 @@
 // ==/UserScript==
 
 ;(() => {
-  const linkHTML = `<li style="width:100%;" class="rmItem">
+  const liElementId = `userScript_${Date.now()}`
+
+  const linkHTML = `<li style="width:100%;" class="rmItem" id="${liElementId}">
     <a class="rmLink rmRootLink" href="https://cityssm.github.io/userscripts/#userscripts-for-faster-web" target="_blank" style="font-size:9pt;">
       <span class="rmText">Add Userscripts</span>
     </a>
@@ -23,4 +25,13 @@
   document
     .querySelector('#ctl00_Navigation_RadMenuHomeNavigation ul')
     ?.insertAdjacentHTML('beforeend', linkHTML)
+
+  function stopPropagation(event: MouseEvent) {
+    event.stopPropagation()
+  }
+
+  const liElement = document.querySelector(`#${liElementId}`) as HTMLLIElement
+
+  liElement.addEventListener('mouseover', stopPropagation)
+  liElement.addEventListener('mouseout', stopPropagation)
 })()

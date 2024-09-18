@@ -7,7 +7,7 @@
 // @exclude-match  https://*.fasterwebcloud.com/FASTER/Domains/Reports/*
 // @exclude-match  https://*.fasterwebcloud.com/FASTER/Domains/Integrations/*
 // @grant          none
-// @version        1.0.0
+// @version        1.1.0
 // @author         The Corporation of the City of Sault Ste. Marie
 // @description    Includes easier-to-click links to the advanced search pages in the Actions menus.
 // @run-at         document-end
@@ -18,6 +18,8 @@
 // ==/UserScript==
 
 ;(() => {
+  const liClassName = 'userScript_navigationRmItem'
+
   const lowerCasePathName = window.location.pathname.toLowerCase()
 
   if (lowerCasePathName.includes('/domains/assets/')) {
@@ -25,7 +27,7 @@
       .querySelector('#ctl00_Navigation_RadMenuActions ul')
       ?.insertAdjacentHTML(
         'afterbegin',
-        `<li style="width:100%;" class="rmItem">
+        `<li style="width:100%;" class="rmItem ${liClassName}">
           <a class="rmLink rmRootLink" href="/FASTER/Domains/Assets/Search/Default.aspx?str=" style="font-size:9pt;">
             <span class="rmText">🔍 Asset Search</span>
           </a>
@@ -36,7 +38,7 @@
       .querySelector('#ctl00_Navigation_RadMenuInventoryActions ul')
       ?.insertAdjacentHTML(
         'afterbegin',
-        `<li style="width:100%;" class="rmItem">
+        `<li style="width:100%;" class="rmItem ${liClassName}">
           <a class="rmLink rmRootLink" href="/FASTER/Domains/Parts/Search/Default.aspx?str=" style="font-size:9pt;">
             <span class="rmText">🔍 Inventory Search</span>
           </a>
@@ -47,12 +49,12 @@
       .querySelector('#ctl00_Navigation_RadMenuActions ul')
       ?.insertAdjacentHTML(
         'afterbegin',
-        `<li style="width:100%;" class="rmItem">
+        `<li style="width:100%;" class="rmItem ${liClassName}">
           <a class="rmLink rmRootLink" href="/FASTER/Domains/Maintenance/WorkOrder/Search/Default.aspx?str=" style="font-size:9pt;">
             <span class="rmText">🔍 Work Order Search</span>
           </a>
           </li>
-          <li style="width:100%;" class="rmItem">
+          <li style="width:100%;" class="rmItem ${liClassName}">
             <a class="rmLink rmRootLink" href="/FASTER/Domains/Maintenance/DirectCharge/Search/Default.aspx?str=" style="font-size:9pt;">
               <span class="rmText">🔍 Direct Charge Search</span>
             </a>
@@ -63,7 +65,7 @@
       .querySelector('#ctl00_Navigation_RadMenuActions ul')
       ?.insertAdjacentHTML(
         'afterbegin',
-        `<li style="width:100%;" class="rmItem">
+        `<li style="width:100%;" class="rmItem ${liClassName}">
           <a class="rmLink rmRootLink" href="/FASTER/Domains/Fuel/Search/Default.aspx?str=" style="font-size:9pt;">
             <span class="rmText">🔍 Fuel Search</span>
           </a>
@@ -74,7 +76,7 @@
       .querySelector('#ctl00_Navigation_RadMenuActions ul')
       ?.insertAdjacentHTML(
         'afterbegin',
-        `<li style="width:100%;" class="rmItem">
+        `<li style="width:100%;" class="rmItem ${liClassName}">
           <a class="rmLink rmRootLink" href="/FASTER/Domains/Accounting/Search/Default.aspx?str=" style="font-size:9pt;">
             <span class="rmText">🔍 Accounting Search</span>
           </a>
@@ -85,11 +87,22 @@
       .querySelector('#ctl00_Navigation_RadMenuActions ul')
       ?.insertAdjacentHTML(
         'afterbegin',
-        `<li style="width:100%;" class="rmItem">
+        `<li style="width:100%;" class="rmItem ${liClassName}">
           <a class="rmLink rmRootLink" href="/FASTER/Domains/Vendors/Search/Default.aspx?str=" style="font-size:9pt;">
             <span class="rmText">🔍 Vendor Search</span>
           </a>
           </li>`
       )
+  }
+
+  function stopPropagation(event: MouseEvent) {
+    event.stopPropagation()
+  }
+
+  const actionElements = document.querySelectorAll(`.${liClassName}`) as NodeListOf<HTMLLIElement>
+
+  for (const actionElement of actionElements) {
+    actionElement.addEventListener('mouseover', stopPropagation)
+    actionElement.addEventListener('mouseout', stopPropagation)
   }
 })()
