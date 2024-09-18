@@ -4,10 +4,11 @@ import tseslint, { type Config } from 'typescript-eslint'
 export default tseslint.config(...eslintConfigCityssm, {
   languageOptions: {
     parserOptions: {
-      project: ['./tsconfig.json', './tsconfig.client.json']
+      project: ['./tsconfig.json', './tsconfig.linting.json']
     }
   },
   rules: {
-    'no-secrets/no-secrets': 'off'
+    'no-secrets/no-secrets': 'off',
+    'sonarjs/new-cap': 'off'
   }
 }) as Config
