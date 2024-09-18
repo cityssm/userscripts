@@ -6,7 +6,7 @@
 // @grant          GM_setValue
 // @grant          GM_registerMenuCommand
 // @grant          GM_unregisterMenuCommand
-// @version        0.3.1-dev
+// @version        0.4.0-dev
 // @author         The Corporation of the City of Sault Ste. Marie
 // @description    Simplifies adding commonly used repair codes to direct charges.
 // @run-at         document-end
@@ -51,7 +51,7 @@ interface RepairDescription {
     }
   ]) as RepairDescription[]
 
-  function saveQuickRepairDescription() {
+  function saveQuickRepairDescription(): void {
     const currentQuickRepairDescription: RepairDescription = {
       reason:
         (
@@ -126,15 +126,15 @@ interface RepairDescription {
     .querySelector(`#${updateQuickCodeButtonId}`)
     ?.addEventListener('click', saveQuickRepairDescription)
 
-  async function sleep() {
-    return new Promise((resolve) => setTimeout(resolve, 300))
+  async function sleep(): Promise<void> {
+    await new Promise((resolve) => setTimeout(resolve, 300));
   }
 
   async function populateComboBoxField(
     comboboxSelector: string,
     value: string,
     doPause = false
-  ) {
+  ): Promise<void> {
     const comboboxControl = (window as any).unsafeWindow?.$find(
       comboboxSelector
     )
@@ -162,7 +162,7 @@ interface RepairDescription {
     comboboxControl.hideDropDown()
   }
 
-  async function setRepairCodeFields(descriptionIndex: number = 0) {
+  async function setRepairCodeFields(descriptionIndex = 0): Promise<void> {
     const repairDescription = quickRepairDescriptions[descriptionIndex]
 
     await populateComboBoxField(selectors.reason, repairDescription.reason)
@@ -210,7 +210,7 @@ interface RepairDescription {
 
   let runOnOpen = GM_getValue(runOnOpenKey, false)
 
-  function registerMenuCommand() {
+  function registerMenuCommand(): void {
     runOnOpenToggleId = GM_registerMenuCommand(
       runOnOpen ? 'Disable Run on Open' : 'Enable Run on Open',
       () => {

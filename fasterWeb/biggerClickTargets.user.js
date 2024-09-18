@@ -3,7 +3,7 @@
 // @namespace    https://github.com/cityssm/userscripts
 // @match        https://*.fasterwebcloud.com/FASTER/*
 // @grant        GM_addStyle
-// @version      0.4.0-dev
+// @version      0.4.1-dev
 // @author       The Corporation of the City of Sault Ste. Marie
 // @description  Increases the size of some click targets, increasing usability on smaller screens.
 // @run-at       document-end

@@ -3,7 +3,7 @@
 // @namespace      https://github.com/cityssm/userscripts
 // @match          https://*.fasterwebcloud.com/FASTER/Domains/Assets/CreateAsset/Default.aspx
 // @grant          none
-// @version        1.0.0
+// @version        1.0.1
 // @author         The Corporation of the City of Sault Ste. Marie
 // @description    Reduces width of the "Create Incoming Asset from Template" button to fix the form on touchscreens.
 // @run-at         document-idle
@@ -21,7 +21,7 @@
 
   const buttonSelector = `#ctl00_ContentPlaceHolder_Content_CreateAssetFromAcquisitionPlanRadDock_C_CreateIncomingAssetButton:not(.${appliedClass})`
 
-  function fixButton() {
+  function fixButton(): void {
     const buttonElement = document.querySelector(
       buttonSelector
     ) as HTMLInputElement | null

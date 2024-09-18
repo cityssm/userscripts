@@ -3,7 +3,7 @@
 // @namespace      https://github.com/cityssm/userscripts
 // @match          https://*.fasterwebcloud.com/FASTER/Domains/Assets/CreateAsset/Default.aspx
 // @grant          none
-// @version        1.0.0
+// @version        1.0.1
 // @author         The Corporation of the City of Sault Ste. Marie
 // @description    Reduces width of the "Create Incoming Asset from Template" button to fix the form on touchscreens.
 // @run-at         document-idle

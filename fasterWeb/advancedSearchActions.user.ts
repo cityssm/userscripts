@@ -7,7 +7,7 @@
 // @exclude-match  https://*.fasterwebcloud.com/FASTER/Domains/Reports/*
 // @exclude-match  https://*.fasterwebcloud.com/FASTER/Domains/Integrations/*
 // @grant          none
-// @version        1.2.0
+// @version        1.2.1
 // @author         The Corporation of the City of Sault Ste. Marie
 // @description    Includes easier-to-click links to the advanced search pages in the Actions menus.
 // @run-at         document-end
@@ -18,24 +18,24 @@
 // ==/UserScript==
 
 ;(() => {
+  const menuSelector = '#ctl00_Navigation_RadMenuActions ul'
+
   const liClassName = 'userScript_navigationRmItem'
 
   const lowerCasePathName = window.location.pathname.toLowerCase()
 
   if (lowerCasePathName.includes('/domains/assets/')) {
-    document
-      .querySelector('#ctl00_Navigation_RadMenuActions ul')
-      ?.insertAdjacentHTML(
-        'afterbegin',
-        `<li style="width:100%;" class="rmItem ${liClassName}">
+    document.querySelector(menuSelector)?.insertAdjacentHTML(
+      'afterbegin',
+      `<li style="width:100%;" class="rmItem ${liClassName}">
           <a class="rmLink rmRootLink" href="/FASTER/Domains/Assets/Search/Default.aspx?str=" style="font-size:9pt;">
             <span class="rmText">🔍 Asset Search</span>
           </a>
           </li>`
-      )
+    )
   } else if (lowerCasePathName.includes('/domains/parts/')) {
     document
-      .querySelector('#ctl00_Navigation_RadMenuInventoryActions ul')
+      .querySelector('#ctl00_Navigation_RadMenuInventoryActions ul') // Not sure why, but different
       ?.insertAdjacentHTML(
         'afterbegin',
         `<li style="width:100%;" class="rmItem ${liClassName}">
@@ -45,11 +45,9 @@
           </li>`
       )
   } else if (lowerCasePathName.includes('/domains/maintenance/')) {
-    document
-      .querySelector('#ctl00_Navigation_RadMenuActions ul')
-      ?.insertAdjacentHTML(
-        'afterbegin',
-        `<li style="width:100%;" class="rmItem ${liClassName}">
+    document.querySelector(menuSelector)?.insertAdjacentHTML(
+      'afterbegin',
+      `<li style="width:100%;" class="rmItem ${liClassName}">
           <a class="rmLink rmRootLink" href="/FASTER/Domains/Maintenance/WorkOrder/Search/Default.aspx?str=" style="font-size:9pt;">
             <span class="rmText">🔍 Work Order Search</span>
           </a>
@@ -59,43 +57,37 @@
               <span class="rmText">🔍 Direct Charge Search</span>
             </a>
           </li>`
-      )
+    )
   } else if (lowerCasePathName.includes('/domains/fuel/')) {
-    document
-      .querySelector('#ctl00_Navigation_RadMenuActions ul')
-      ?.insertAdjacentHTML(
-        'afterbegin',
-        `<li style="width:100%;" class="rmItem ${liClassName}">
+    document.querySelector(menuSelector)?.insertAdjacentHTML(
+      'afterbegin',
+      `<li style="width:100%;" class="rmItem ${liClassName}">
           <a class="rmLink rmRootLink" href="/FASTER/Domains/Fuel/Search/Default.aspx?str=" style="font-size:9pt;">
             <span class="rmText">🔍 Fuel Search</span>
           </a>
           </li>`
-      )
+    )
   } else if (lowerCasePathName.includes('/domains/accounting/')) {
-    document
-      .querySelector('#ctl00_Navigation_RadMenuActions ul')
-      ?.insertAdjacentHTML(
-        'afterbegin',
-        `<li style="width:100%;" class="rmItem ${liClassName}">
+    document.querySelector(menuSelector)?.insertAdjacentHTML(
+      'afterbegin',
+      `<li style="width:100%;" class="rmItem ${liClassName}">
           <a class="rmLink rmRootLink" href="/FASTER/Domains/Accounting/Search/Default.aspx?str=" style="font-size:9pt;">
             <span class="rmText">🔍 Accounting Search</span>
           </a>
           </li>`
-      )
+    )
   } else if (lowerCasePathName.includes('/domains/vendors/')) {
-    document
-      .querySelector('#ctl00_Navigation_RadMenuActions ul')
-      ?.insertAdjacentHTML(
-        'afterbegin',
-        `<li style="width:100%;" class="rmItem ${liClassName}">
+    document.querySelector(menuSelector)?.insertAdjacentHTML(
+      'afterbegin',
+      `<li style="width:100%;" class="rmItem ${liClassName}">
           <a class="rmLink rmRootLink" href="/FASTER/Domains/Vendors/Search/Default.aspx?str=" style="font-size:9pt;">
             <span class="rmText">🔍 Vendor Search</span>
           </a>
           </li>`
-      )
+    )
   }
 
-  function stopPropagation(event: Event) {
+  function stopPropagation(event: Event): void {
     event.stopPropagation()
   }
 

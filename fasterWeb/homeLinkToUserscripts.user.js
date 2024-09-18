@@ -4,7 +4,7 @@
 // @match        https://*.fasterwebcloud.com/FASTER/Domains/Home/Default.aspx
 // @match        https://*.fasterwebcloud.com/FASTER/Domains/Home/ChangePassword.aspx
 // @grant        none
-// @version      1.3.0
+// @version      1.3.1
 // @author       The Corporation of the City of Sault Ste. Marie
 // @description  Adds a link to the City's Userscripts page to the Actions menu.
 // @run-at       document-end
