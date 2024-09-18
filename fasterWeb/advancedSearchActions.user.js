@@ -7,7 +7,7 @@
 // @exclude-match  https://*.fasterwebcloud.com/FASTER/Domains/Reports/*
 // @exclude-match  https://*.fasterwebcloud.com/FASTER/Domains/Integrations/*
 // @grant          none
-// @version        1.1.0
+// @version        1.2.0
 // @author         The Corporation of the City of Sault Ste. Marie
 // @description    Includes easier-to-click links to the advanced search pages in the Actions menus.
 // @run-at         document-end
@@ -77,9 +77,19 @@
     function stopPropagation(event) {
         event.stopPropagation();
     }
-    const actionElements = document.querySelectorAll(`.${liClassName}`);
+    const actionElements = document.querySelectorAll(`.${liClassName} a`);
+    const noisyEvents = [
+        'mouseover',
+        'mouseout',
+        'mousedown',
+        'mouseup',
+        'focus',
+        'blur',
+        'click'
+    ];
     for (const actionElement of actionElements) {
-        actionElement.addEventListener('mouseover', stopPropagation);
-        actionElement.addEventListener('mouseout', stopPropagation);
+        for (const noisyEvent of noisyEvents) {
+            actionElement.addEventListener(noisyEvent, stopPropagation);
+        }
     }
 })();

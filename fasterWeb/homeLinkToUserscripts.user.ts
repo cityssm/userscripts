@@ -4,7 +4,7 @@
 // @match        https://*.fasterwebcloud.com/FASTER/Domains/Home/Default.aspx
 // @match        https://*.fasterwebcloud.com/FASTER/Domains/Home/ChangePassword.aspx
 // @grant        none
-// @version      1.2.0
+// @version      1.3.0
 // @author       The Corporation of the City of Sault Ste. Marie
 // @description  Adds a link to the City's Userscripts page to the Actions menu.
 // @run-at       document-end
@@ -27,12 +27,25 @@
     .querySelector('#ctl00_Navigation_RadMenuHomeNavigation ul')
     ?.insertAdjacentHTML('beforeend', linkHTML)
 
-  function stopPropagation(event: MouseEvent) {
+  function stopPropagation(event: Event) {
     event.stopPropagation()
   }
 
-  const liElement = document.querySelector(`#${liElementId}`) as HTMLLIElement
+  const actionElement = document.querySelector(
+    `#${liElementId} a`
+  ) as HTMLElement
 
-  liElement.addEventListener('mouseover', stopPropagation)
-  liElement.addEventListener('mouseout', stopPropagation)
+  const noisyEvents: Array<keyof HTMLElementEventMap> = [
+    'mouseover',
+    'mouseout',
+    'mousedown',
+    'mouseup',
+    'focus',
+    'blur',
+    'click'
+  ]
+
+  for (const noisyEvent of noisyEvents) {
+    actionElement.addEventListener(noisyEvent, stopPropagation)
+  }
 })()
