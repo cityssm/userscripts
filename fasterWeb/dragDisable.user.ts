@@ -3,7 +3,7 @@
 // @namespace    https://github.com/cityssm/userscripts
 // @match        https://*.fasterwebcloud.com/FASTER/Domains/*
 // @grant        none
-// @version      1.1.0
+// @version      1.1.1
 // @author       The Corporation of the City of Sault Ste. Marie
 // @description  Disables certain drag-and-drop features, like rearranging windows, to improve usability on touchscreens.
 // @run-at       document-idle
@@ -15,7 +15,14 @@
 
 ;(() => {
   const appliedClassName = 'userScript_mouseEventApplied'
-  const mouseEvents = ['mousedown', 'mouseover', 'mousemove', 'mouseout']
+  const mouseEvents = [
+    'mousedown',
+    'mouseover',
+    'mousemove',
+    'mouseout',
+    'touchmove',
+    'touchstart'
+  ]
 
   const draggableElementSelectors = [`.rdTitleBar`, `th.rgHeader`]
 
