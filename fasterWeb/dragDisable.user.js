@@ -3,7 +3,7 @@
 // @namespace    https://github.com/cityssm/userscripts
 // @match        https://*.fasterwebcloud.com/FASTER/Domains/*
 // @grant        none
-// @version      1.1.1
+// @version      1.1.2
 // @author       The Corporation of the City of Sault Ste. Marie
 // @description  Disables certain drag-and-drop features, like rearranging windows, to improve usability on touchscreens.
 // @run-at       document-idle
@@ -28,7 +28,6 @@
         event === null || event === void 0 ? void 0 : event.stopImmediatePropagation();
     }
     function removeDrag() {
-        console.log('removeDrag');
         const draggableElements = document.querySelectorAll(draggableElementSelectors.join(', '));
         for (const draggableElement of draggableElements) {
             // Changing the cursor appears sufficient enough to disable dragging on windows.
