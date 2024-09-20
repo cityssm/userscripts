@@ -2,6 +2,7 @@
   "extends": "./tsconfig.base.json",
   "compilerOptions": {
     "target": "ES2017",
+    "removeComments": false
   },
-  "include": ["fasterWeb/*", "spiceworks/*", "globalTypes.ts"]
+  "include": ["fasterWeb/*", "helpers/*", "spiceworks/*", "globalTypes.ts"]
 }
