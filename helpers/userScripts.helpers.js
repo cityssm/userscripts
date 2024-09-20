@@ -10,12 +10,10 @@
             try {
                 const returnValue = retryFunction();
                 if (returnValue !== null) {
-                    console.log('success');
                     return returnValue;
                 }
             }
             catch (_a) { }
-            console.log('waiting...');
             await window.UserScriptHelpers.sleep(sleepMillis);
         }
         // eslint-disable-next-line unicorn/no-null

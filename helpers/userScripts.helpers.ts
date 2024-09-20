@@ -16,12 +16,10 @@
         const returnValue = retryFunction()
   
         if (returnValue !== null) {
-          console.log('success')
           return returnValue
         }
       } catch {}
   
-      console.log('waiting...')
       await window.UserScriptHelpers.sleep(sleepMillis)
     }
   
