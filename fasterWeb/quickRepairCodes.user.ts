@@ -6,7 +6,8 @@
 // @grant          GM_setValue
 // @grant          GM_registerMenuCommand
 // @grant          GM_unregisterMenuCommand
-// @version        0.4.0-dev
+// @require        https://raw.githubusercontent.com/cityssm/userscripts/main/helpers/userScripts.helpers.js?_=1
+// @version        0.5.0-dev
 // @author         The Corporation of the City of Sault Ste. Marie
 // @description    Simplifies adding commonly used repair codes to direct charges.
 // @run-at         document-end
@@ -15,6 +16,9 @@
 // @homepageURL    https://cityssm.github.io/userscripts/
 // @icon           https://cityssm.github.io/img/header-cityssm.png
 // ==/UserScript==
+
+// eslint-disable-next-line @eslint-community/eslint-comments/disable-enable-pair
+/* eslint-disable @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-assignment */
 
 interface RepairDescription {
   reason: string
@@ -126,27 +130,38 @@ interface RepairDescription {
     .querySelector(`#${updateQuickCodeButtonId}`)
     ?.addEventListener('click', saveQuickRepairDescription)
 
-  async function sleep(): Promise<void> {
-    await new Promise((resolve) => setTimeout(resolve, 300));
-  }
-
   async function populateComboBoxField(
     comboboxSelector: string,
     value: string,
     doPause = false
   ): Promise<void> {
-    const comboboxControl = (window as any).unsafeWindow?.$find(
-      comboboxSelector
-    )
+    await window.UserScriptHelpers.queryHtmlSelectorWait('#' + comboboxSelector)
+
+    const comboboxControl = window.unsafeWindow?.$find(comboboxSelector)
 
     comboboxControl.showDropDown()
 
     if (doPause) {
-      await sleep()
-      await sleep()
+      await window.UserScriptHelpers.sleep(1000)
     }
 
-    const comboboxItems = comboboxControl.get_items().toArray()
+    const comboboxItems =
+      (
+        await window.UserScriptHelpers.retryWhileNull(() => {
+          const element = window.unsafeWindow?.$find(comboboxSelector)
+          
+          element.showDropDown()
+
+          const items = element.get_items()
+
+          if (items !== null && items?.toArray().length > 0) {
+            return items
+          }
+
+          // eslint-disable-next-line unicorn/no-null
+          return null
+        })
+      )?.toArray() ?? []
 
     if (comboboxItems.length > 0) {
       comboboxItems[0].select()
@@ -159,7 +174,9 @@ interface RepairDescription {
       }
     }
 
-    comboboxControl.hideDropDown()
+    try {
+      comboboxControl.hideDropDown()
+    } catch {}
   }
 
   async function setRepairCodeFields(descriptionIndex = 0): Promise<void> {
@@ -167,15 +184,9 @@ interface RepairDescription {
 
     await populateComboBoxField(selectors.reason, repairDescription.reason)
 
-    await sleep()
+    await populateComboBoxField(selectors.schedule, repairDescription.schedule)
 
-    await populateComboBoxField(
-      selectors.schedule,
-      repairDescription.schedule,
-      true
-    )
-
-    await sleep()
+    await window.UserScriptHelpers.sleep()
     ;(
       document.querySelector('#' + selectors.isBillable) as HTMLInputElement
     ).checked = repairDescription.isBillable
@@ -186,12 +197,7 @@ interface RepairDescription {
       true
     )
 
-    await sleep()
-    await sleep()
-
     await populateComboBoxField(selectors.group, repairDescription.group, true)
-
-    await sleep()
 
     await populateComboBoxField(
       selectors.component,

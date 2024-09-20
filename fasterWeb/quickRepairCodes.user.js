@@ -6,7 +6,8 @@
 // @grant          GM_setValue
 // @grant          GM_registerMenuCommand
 // @grant          GM_unregisterMenuCommand
-// @version        0.4.0-dev
+// @require        https://raw.githubusercontent.com/cityssm/userscripts/main/helpers/userScripts.helpers.js?_=1
+// @version        0.5.0-dev
 // @author         The Corporation of the City of Sault Ste. Marie
 // @description    Simplifies adding commonly used repair codes to direct charges.
 // @run-at         document-end
@@ -66,18 +67,25 @@
         </td>`);
     (_c = document
         .querySelector(`#${updateQuickCodeButtonId}`)) === null || _c === void 0 ? void 0 : _c.addEventListener('click', saveQuickRepairDescription);
-    async function sleep() {
-        await new Promise((resolve) => setTimeout(resolve, 300));
-    }
     async function populateComboBoxField(comboboxSelector, value, doPause = false) {
-        var _a;
+        var _a, _b, _c;
+        await window.UserScriptHelpers.queryHtmlSelectorWait('#' + comboboxSelector);
         const comboboxControl = (_a = window.unsafeWindow) === null || _a === void 0 ? void 0 : _a.$find(comboboxSelector);
         comboboxControl.showDropDown();
         if (doPause) {
-            await sleep();
-            await sleep();
+            await window.UserScriptHelpers.sleep(1000);
         }
-        const comboboxItems = comboboxControl.get_items().toArray();
+        const comboboxItems = (_c = (_b = (await window.UserScriptHelpers.retryWhileNull(() => {
+            var _a;
+            const element = (_a = window.unsafeWindow) === null || _a === void 0 ? void 0 : _a.$find(comboboxSelector);
+            element.showDropDown();
+            const items = element.get_items();
+            if (items !== null && (items === null || items === void 0 ? void 0 : items.toArray().length) > 0) {
+                return items;
+            }
+            // eslint-disable-next-line unicorn/no-null
+            return null;
+        }))) === null || _b === void 0 ? void 0 : _b.toArray()) !== null && _c !== void 0 ? _c : [];
         if (comboboxItems.length > 0) {
             comboboxItems[0].select();
         }
@@ -87,20 +95,19 @@
                 break;
             }
         }
-        comboboxControl.hideDropDown();
+        try {
+            comboboxControl.hideDropDown();
+        }
+        catch (_d) { }
     }
     async function setRepairCodeFields(descriptionIndex = 0) {
         const repairDescription = quickRepairDescriptions[descriptionIndex];
         await populateComboBoxField(selectors.reason, repairDescription.reason);
-        await sleep();
-        await populateComboBoxField(selectors.schedule, repairDescription.schedule, true);
-        await sleep();
+        await populateComboBoxField(selectors.schedule, repairDescription.schedule);
+        await window.UserScriptHelpers.sleep();
         document.querySelector('#' + selectors.isBillable).checked = repairDescription.isBillable;
         await populateComboBoxField(selectors.action, repairDescription.action, true);
-        await sleep();
-        await sleep();
         await populateComboBoxField(selectors.group, repairDescription.group, true);
-        await sleep();
         await populateComboBoxField(selectors.component, repairDescription.component, true);
     }
     /*
