@@ -5,7 +5,7 @@
 // @grant        GM_addStyle
 // @require      https://raw.githubusercontent.com/cityssm/userscripts/main/lib/fontawesome-free-6.6.0-web/js/solid.min.js
 // @require      https://raw.githubusercontent.com/cityssm/userscripts/main/lib/fontawesome-free-6.6.0-web/js/fontawesome.min.js
-// @version      0.1.0-dev
+// @version      0.1.1-dev
 // @author       The Corporation of the City of Sault Ste. Marie
 // @description  Include easy-to-tap, big buttons for the main page action in the bottom-right corner.
 // @run-at       document-end
@@ -56,7 +56,7 @@
       .${floatingContainerClassName} a,
       .${floatingContainerClassName} button {
         display: inline-block;
-        padding: 0 10px;
+        padding: 5px;
         min-width: 74px;
         height: 74px;
         line-height: 74px;
