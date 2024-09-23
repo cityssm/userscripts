@@ -7,7 +7,7 @@
 // @exclude-match  https://*.fasterwebcloud.com/FASTER/Domains/Reports/*
 // @exclude-match  https://*.fasterwebcloud.com/FASTER/Domains/Integrations/*
 // @grant          none
-// @version        1.2.1
+// @version        1.2.2
 // @author         The Corporation of the City of Sault Ste. Marie
 // @description    Includes easier-to-click links to the advanced search pages in the Actions menus.
 // @run-at         document-end
@@ -28,10 +28,10 @@
     document.querySelector(menuSelector)?.insertAdjacentHTML(
       'afterbegin',
       `<li style="width:100%;" class="rmItem ${liClassName}">
-          <a class="rmLink rmRootLink" href="/FASTER/Domains/Assets/Search/Default.aspx?str=" style="font-size:9pt;">
-            <span class="rmText">🔍 Asset Search</span>
-          </a>
-          </li>`
+        <a class="rmLink rmRootLink" href="/FASTER/Domains/Assets/Search/Default.aspx?str=" style="font-size:9pt;">
+          <span class="rmText">🔍 Asset Search</span>
+        </a>
+        </li>`
     )
   } else if (lowerCasePathName.includes('/domains/parts/')) {
     document
@@ -48,42 +48,42 @@
     document.querySelector(menuSelector)?.insertAdjacentHTML(
       'afterbegin',
       `<li style="width:100%;" class="rmItem ${liClassName}">
-          <a class="rmLink rmRootLink" href="/FASTER/Domains/Maintenance/WorkOrder/Search/Default.aspx?str=" style="font-size:9pt;">
-            <span class="rmText">🔍 Work Order Search</span>
+        <a class="rmLink rmRootLink" href="/FASTER/Domains/Maintenance/WorkOrder/Search/Default.aspx?str=" style="font-size:9pt;">
+          <span class="rmText">🔍 Work Order Search</span>
+        </a>
+        </li>
+        <li style="width:100%;" class="rmItem ${liClassName}">
+          <a class="rmLink rmRootLink" href="/FASTER/Domains/Maintenance/DirectCharge/Search/Default.aspx?str=" style="font-size:9pt;">
+            <span class="rmText">🔍 Direct Charge Search</span>
           </a>
-          </li>
-          <li style="width:100%;" class="rmItem ${liClassName}">
-            <a class="rmLink rmRootLink" href="/FASTER/Domains/Maintenance/DirectCharge/Search/Default.aspx?str=" style="font-size:9pt;">
-              <span class="rmText">🔍 Direct Charge Search</span>
-            </a>
-          </li>`
+        </li>`
     )
   } else if (lowerCasePathName.includes('/domains/fuel/')) {
     document.querySelector(menuSelector)?.insertAdjacentHTML(
       'afterbegin',
       `<li style="width:100%;" class="rmItem ${liClassName}">
-          <a class="rmLink rmRootLink" href="/FASTER/Domains/Fuel/Search/Default.aspx?str=" style="font-size:9pt;">
-            <span class="rmText">🔍 Fuel Search</span>
-          </a>
-          </li>`
+        <a class="rmLink rmRootLink" href="/FASTER/Domains/Fuel/Search/Default.aspx?str=" style="font-size:9pt;">
+          <span class="rmText">🔍 Fuel Search</span>
+        </a>
+        </li>`
     )
   } else if (lowerCasePathName.includes('/domains/accounting/')) {
     document.querySelector(menuSelector)?.insertAdjacentHTML(
       'afterbegin',
       `<li style="width:100%;" class="rmItem ${liClassName}">
-          <a class="rmLink rmRootLink" href="/FASTER/Domains/Accounting/Search/Default.aspx?str=" style="font-size:9pt;">
-            <span class="rmText">🔍 Accounting Search</span>
-          </a>
-          </li>`
+        <a class="rmLink rmRootLink" href="/FASTER/Domains/Accounting/Search/Default.aspx?str=" style="font-size:9pt;">
+          <span class="rmText">🔍 Accounting Search</span>
+        </a>
+        </li>`
     )
   } else if (lowerCasePathName.includes('/domains/vendors/')) {
     document.querySelector(menuSelector)?.insertAdjacentHTML(
       'afterbegin',
       `<li style="width:100%;" class="rmItem ${liClassName}">
-          <a class="rmLink rmRootLink" href="/FASTER/Domains/Vendors/Search/Default.aspx?str=" style="font-size:9pt;">
-            <span class="rmText">🔍 Vendor Search</span>
-          </a>
-          </li>`
+        <a class="rmLink rmRootLink" href="/FASTER/Domains/Vendors/Search/Default.aspx?str=" style="font-size:9pt;">
+          <span class="rmText">🔍 Vendor Search</span>
+        </a>
+        </li>`
     )
   }
 

@@ -3,7 +3,7 @@
 // @namespace    https://github.com/cityssm/userscripts
 // @match        https://*.fasterwebcloud.com/FASTER/Domains/*
 // @grant        none
-// @version      1.1.2
+// @version      1.1.3
 // @author       The Corporation of the City of Sault Ste. Marie
 // @description  Disables certain drag-and-drop features, like rearranging windows, to improve usability on touchscreens.
 // @run-at       document-idle
@@ -23,7 +23,7 @@
         'touchmove',
         'touchstart'
     ];
-    const draggableElementSelectors = [`.rdTitleBar`, `th.rgHeader`];
+    const draggableElementSelectors = ['.rdTitleBar', 'th.rgHeader'];
     function stopImmediatePropagation(event) {
         event === null || event === void 0 ? void 0 : event.stopImmediatePropagation();
     }
@@ -41,27 +41,4 @@
         }
     }
     removeDrag();
-    /*
-    function debounce(function_, timeout = 300) {
-      let timer
-      return (...arguments_) => {
-        clearTimeout(timer)
-        timer = setTimeout(() => {
-          function_.apply(this, arguments_)
-        }, timeout)
-      }
-    }
-  
-    const removeDragDebounce = debounce(() => {
-      removeDrag()
-    })
-  
-    const observer = new MutationObserver(removeDragDebounce)
-  
-    observer.observe(document, {
-      attributes: true,
-      childList: true,
-      subtree: true
-    })
-    */
 })();
