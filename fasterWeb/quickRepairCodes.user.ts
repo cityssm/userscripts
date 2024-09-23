@@ -6,8 +6,9 @@
 // @grant          GM_setValue
 // @grant          GM_registerMenuCommand
 // @grant          GM_unregisterMenuCommand
+// @grant          GM_notification
 // @require        https://raw.githubusercontent.com/cityssm/userscripts/main/helpers/userScripts.helpers.js?_=1
-// @version        0.5.1-dev
+// @version        0.6.0-dev
 // @author         The Corporation of the City of Sault Ste. Marie
 // @description    Simplifies adding commonly used repair codes to direct charges.
 // @run-at         document-end
@@ -102,9 +103,12 @@ interface RepairDescription {
       currentQuickRepairDescription.group === '' ||
       currentQuickRepairDescription.component === ''
     ) {
-      alert(
-        'Please ensure all five repair code fields (Reason, Schedule, Action, Group, and Component) are populated.'
-      )
+      GM_notification({
+        title: 'Quick Repair Codes Userscript',
+        text: '❌ Please ensure all five repair code fields (Reason, Schedule, Action, Group, and Component) are populated.',
+        image: 'https://cityssm.github.io/userscripts/assets/ssmUserscript.png'
+      })
+
       return
     }
 
@@ -112,7 +116,12 @@ interface RepairDescription {
 
     GM_setValue(quickRepairDescriptionsKey, quickRepairDescriptions)
 
-    alert('Quick Code updated successfully.')
+    GM_notification({
+      title: 'Quick Repair Codes Userscript',
+      text: '✔️ Quick Code updated successfully.',
+      image: 'https://cityssm.github.io/userscripts/assets/ssmUserscript.png',
+      silent: true
+    })
   }
 
   const updateQuickCodeButtonId = 'userScript_updateQuickCodeButton'
@@ -149,7 +158,7 @@ interface RepairDescription {
       (
         await window.UserScriptHelpers.retryWhileNull(() => {
           const element = window.unsafeWindow?.$find(comboboxSelector)
-          
+
           element.showDropDown()
 
           const items = element.get_items()
