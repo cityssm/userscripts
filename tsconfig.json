@@ -4,5 +4,5 @@
     "target": "ES2017",
     "removeComments": false
   },
-  "include": ["fasterWeb/*", "helpers/*", "spiceworks/*", "globalTypes.ts"]
+  "include": ["fasterWeb/**/*", "helpers/*", "spiceworks/*", "globalTypes.ts", "fasterWeb/dev/poApprovalSidebar.user.js", "fasterWeb/dev/poApprovalSidebar.user.ts"]
 }
