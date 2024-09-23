@@ -7,7 +7,7 @@
 // @grant          GM_registerMenuCommand
 // @grant          GM_unregisterMenuCommand
 // @require        https://raw.githubusercontent.com/cityssm/userscripts/main/helpers/userScripts.helpers.js?_=1
-// @version        0.5.0-dev
+// @version        0.5.1-dev
 // @author         The Corporation of the City of Sault Ste. Marie
 // @description    Simplifies adding commonly used repair codes to direct charges.
 // @run-at         document-end
@@ -69,7 +69,7 @@
         .querySelector(`#${updateQuickCodeButtonId}`)) === null || _c === void 0 ? void 0 : _c.addEventListener('click', saveQuickRepairDescription);
     async function populateComboBoxField(comboboxSelector, value, doPause = false) {
         var _a, _b, _c;
-        await window.UserScriptHelpers.queryHtmlSelectorWait('#' + comboboxSelector);
+        await window.UserScriptHelpers.queryHtmlSelectorWait(`#${comboboxSelector}`);
         const comboboxControl = (_a = window.unsafeWindow) === null || _a === void 0 ? void 0 : _a.$find(comboboxSelector);
         comboboxControl.showDropDown();
         if (doPause) {
