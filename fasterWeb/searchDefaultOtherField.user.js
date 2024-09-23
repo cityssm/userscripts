@@ -12,7 +12,7 @@
 // @match          https://*.fasterwebcloud.com/FASTER/Domains/Parts/Search/Default.aspx
 // @grant          GM_getValue
 // @grant          GM_setValue
-// @version        1.0.0
+// @version        1.0.1
 // @author         The Corporation of the City of Sault Ste. Marie
 // @description    Remembers the last used "Other" field in search filters.
 // @run-at         document-end
@@ -26,6 +26,7 @@
     var _a, _b;
     const page = window.location.pathname;
     const storageKey = `fasterWeb_otherField_${page}`;
+    // eslint-disable-next-line @typescript-eslint/no-magic-numbers
     const otherIndex = GM_getValue(storageKey, 0);
     const otherSelectorIdPrefixes = [
         '#ctl00_ContentPlaceHolder_Content_RadDockSearch_C_OtherRadComboBox_',
@@ -37,8 +38,8 @@
     let otherInputSelector = '';
     let otherDropdownSelector = '';
     for (const otherSelectorIdPrefix of otherSelectorIdPrefixes) {
-        otherInputSelector = otherSelectorIdPrefix + 'Input';
-        otherDropdownSelector = otherSelectorIdPrefix + 'DropDown';
+        otherInputSelector = `${otherSelectorIdPrefix}Input`;
+        otherDropdownSelector = `${otherSelectorIdPrefix}DropDown`;
         if (document.querySelector(otherInputSelector) !== null &&
             document.querySelector(otherDropdownSelector) !== null) {
             otherSelectorsFound = true;

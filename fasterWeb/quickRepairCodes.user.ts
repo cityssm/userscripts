@@ -8,7 +8,7 @@
 // @grant          GM_unregisterMenuCommand
 // @grant          GM_notification
 // @require        https://raw.githubusercontent.com/cityssm/userscripts/main/helpers/userScripts.helpers.js?_=1
-// @version        0.6.0-dev
+// @version        0.6.1-dev
 // @author         The Corporation of the City of Sault Ste. Marie
 // @description    Simplifies adding commonly used repair codes to direct charges.
 // @run-at         document-end
@@ -197,7 +197,7 @@ interface RepairDescription {
 
     await window.UserScriptHelpers.sleep()
     ;(
-      document.querySelector('#' + selectors.isBillable) as HTMLInputElement
+      document.querySelector(`#${selectors.isBillable}`) as HTMLInputElement
     ).checked = repairDescription.isBillable
 
     await populateComboBoxField(
