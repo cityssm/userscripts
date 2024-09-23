@@ -6,7 +6,7 @@
   "license": "MIT",
   "devDependencies": {
     "@types/tampermonkey": "^5.0.3",
-    "eslint-config-cityssm": "^8.0.0",
+    "eslint-config-cityssm": "^9.0.1",
     "prettier-config-cityssm": "^1.0.0"
   },
   "private": true
