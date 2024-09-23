@@ -3,7 +3,7 @@
 // @namespace    https://github.com/cityssm/userscripts
 // @match        https://*.fasterwebcloud.com/FASTER/*
 // @grant        GM_addStyle
-// @version      1.2.0
+// @version      1.3.0
 // @author       The Corporation of the City of Sault Ste. Marie
 // @description  Increases accessibility by outlining actionable elements on hover and keyboard focus.
 // @run-at       document-idle
@@ -15,13 +15,15 @@
 ;
 (() => {
     GM_addStyle(`
-      a:focus,
-      a:hover,
-      span[tabindex]:focus,
-      span[tabindex]:hover {
-        outline-color: black;
-        outline-offset: 3px;                    
-        outline-style: dashed !important;
-        outline-width: 2px !important;
-      }`);
+    a:focus,
+    a:hover,
+    span[tabindex]:focus,
+    span[tabindex]:hover,
+    button:focus,
+    button:hover {
+      outline-color: black;
+      outline-offset: 3px;                    
+      outline-style: dashed !important;
+      outline-width: 2px !important;
+    }`);
 })();
