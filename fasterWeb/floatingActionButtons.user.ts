@@ -5,7 +5,7 @@
 // @grant        GM_addStyle
 // @require      https://raw.githubusercontent.com/cityssm/userscripts/main/lib/fontawesome-free-6.6.0-web/js/solid.min.js
 // @require      https://raw.githubusercontent.com/cityssm/userscripts/main/lib/fontawesome-free-6.6.0-web/js/fontawesome.min.js
-// @version      0.1.1-dev
+// @version      0.1.2-dev
 // @author       The Corporation of the City of Sault Ste. Marie
 // @description  Include easy-to-tap, big buttons for the main page action in the bottom-right corner.
 // @run-at       document-end
@@ -64,6 +64,11 @@ type LowerCasePage = `/faster/domains/${string}`
 
   function createFloatingActionButton(options: FloatingButtonOptions): void {
     GM_addStyle(`
+      #RAD_SPLITTER_PANE_CONTENT_ctl00_RadPane_Content,
+      #RAD_SPLITTER_PANE_CONTENT_ctl00_ContentPlaceHolder_Content_panebottom {
+        padding-bottom: 150px;
+      }
+
       .${floatingContainerClassName} {
         position: fixed;
         right: 20px;
@@ -72,6 +77,7 @@ type LowerCasePage = `/faster/domains/${string}`
         
       .${floatingContainerClassName} a,
       .${floatingContainerClassName} button {
+        box-sizing: content-box;
         display: inline-block;
         padding: 5px;
         min-width: 74px;
