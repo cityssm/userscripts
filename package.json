@@ -1,13 +1,13 @@
 {
   "name": "@cityssm/userscripts",
   "version": "1.0.0",
+  "private": true,
   "description": "Web browser userscripts to help with common irks in our applications.",
-  "author": "The Corporation of the City of Sault Ste. Marie",
   "license": "MIT",
+  "author": "The Corporation of the City of Sault Ste. Marie",
   "devDependencies": {
-    "@types/tampermonkey": "^5.0.3",
-    "eslint-config-cityssm": "^9.0.1",
+    "@types/tampermonkey": "^5.0.4",
+    "eslint-config-cityssm": "^24.0.0",
     "prettier-config-cityssm": "^1.0.0"
-  },
-  "private": true
+  }
 }
