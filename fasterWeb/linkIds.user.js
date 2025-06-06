@@ -3,11 +3,13 @@
 // @namespace    https://github.com/cityssm/userscripts
 // @match        https://*.fasterwebcloud.com/FASTER/Domains/Assets/Search/Default.aspx
 // @match        https://*.fasterwebcloud.com/FASTER/Domains/Maintenance/ManageTask/Search/Default.aspx
+// @match        https://*.fasterwebcloud.com/FASTER/Domains/Maintenance/ManageTask/TaskListView.aspx
 // @match        https://*.fasterwebcloud.com/FASTER/Domains/Parts/PartList/Default.aspx
+// @match        https://*.fasterwebcloud.com/FASTER/Domains/Parts/PartList/PartListMaster.aspx
 // @match        https://*.fasterwebcloud.com/FASTER/Domains/Parts/Search/Default.aspx
 // @match        https://*.fasterwebcloud.com/FASTER/Domains/Vendors/Search/Default.aspx
 // @grant        GM_addStyle
-// @version      1.0.0
+// @version      1.1.0
 // @author       The Corporation of the City of Sault Ste. Marie
 // @description  Appends IDs to selected links in FASTER Web to make them easier to differentiate.
 // @run-at       document-end
@@ -18,7 +20,8 @@
 // ==/UserScript==
 ;
 (() => {
-    GM_addStyle(`  
+    GM_addStyle(`
+    h1[data-link-id]::after,
     a[data-link-id]::after {
       content: " [" attr(data-link-id) "]";
       color: gray;
@@ -47,10 +50,28 @@
             extractIdToDataId(linkElement);
         }
     }
-    updateLinks();
-    const observer = new MutationObserver(updateLinks);
-    observer.observe(document, {
-        childList: true,
-        subtree: true
-    });
+    function updateHeader() {
+        const pageUrl = globalThis.location.href.toLowerCase();
+        for (const idExtractingRegularExpression of idExtractingRegularExpressions) {
+            const match = pageUrl.match(idExtractingRegularExpression);
+            if (match !== null && match.length > 1) {
+                const id = match[1];
+                const headerElement = document.querySelector('h1');
+                if (headerElement !== null) {
+                    headerElement.dataset.linkId = id;
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+    const headerUpdated = updateHeader();
+    if (!headerUpdated) {
+        updateLinks();
+        const observer = new MutationObserver(updateLinks);
+        observer.observe(document, {
+            childList: true,
+            subtree: true
+        });
+    }
 })();
