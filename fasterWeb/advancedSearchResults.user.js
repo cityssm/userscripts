@@ -13,6 +13,7 @@
 // @match        https://*.fasterwebcloud.com/FASTER/Domains/Fuel/Search/Default.aspx
 // @match        https://*.fasterwebcloud.com/FASTER/Domains/Maintenance/WorkOrder/Search/Default.aspx
 // @match        https://*.fasterwebcloud.com/FASTER/Domains/Maintenance/DirectCharge/Search/Default.aspx
+// @match        https://*.fasterwebcloud.com/FASTER/Domains/Maintenance/ManageTask/Search/Default.aspx
 // @match        https://*.fasterwebcloud.com/FASTER/Domains/Parts/PartList/Default.aspx
 // @match        https://*.fasterwebcloud.com/FASTER/Domains/Parts/PartOrder/Search.aspx
 // @match        https://*.fasterwebcloud.com/FASTER/Domains/Parts/PartReceive/PartOrderSeach.aspx
@@ -26,7 +27,7 @@
 // @match        https://*.fasterwebcloud.com/FASTER/Domains/Parts/PartRequest/PartsRequest.aspx
 // @match        https://*.fasterwebcloud.com/FASTER/Domains/Vendors/Search/Default.aspx
 // @grant        none
-// @version      1.1.4
+// @version      1.1.5
 // @author       The Corporation of the City of Sault Ste. Marie
 // @description  Loads search results immediately on Advanced Search and other search pages.
 // @run-at       document-end
@@ -37,13 +38,14 @@
 // ==/UserScript==
 ;
 (() => {
-    const isPost = document.referrer === window.location.href;
+    const isPost = document.referrer === globalThis.location.href;
     if (!isPost) {
         document.body.style.opacity = '0';
         const submitButtonSelectors = [
             'a.rfdSkinnedButton input[type="submit"]:not(#ctl00_ContentPlaceHolder_Content_AddNewTransfersButton)',
             'input.rbDecorated[type="submit"]',
             '#ctl00_ContentPlaceHolder_Content_RadDockSearch_C_SearchButton',
+            '#ctl00_ContentPlaceHolder_Content_SearchRadDock_C_SearchButton',
             '#ctl00_ContentPlaceHolder_Content_SearchCriteriaRadDock_C_SearchButton',
             '#ctl00_ContentPlaceHolder_Content_BillingAdjustmentSearchRadDock_C_SearchButton'
         ];
