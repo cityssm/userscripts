@@ -1,15 +1,15 @@
 // ==UserScript==
 // @name         FASTER Web - Show Link IDs
 // @namespace    https://github.com/cityssm/userscripts
-// @match        https://*.fasterwebcloud.com/FASTER/Domains/Assets/Search/Default.aspx
-// @match        https://*.fasterwebcloud.com/FASTER/Domains/Maintenance/ManageTask/Search/Default.aspx
-// @match        https://*.fasterwebcloud.com/FASTER/Domains/Maintenance/ManageTask/TaskListView.aspx
-// @match        https://*.fasterwebcloud.com/FASTER/Domains/Parts/PartList/Default.aspx
-// @match        https://*.fasterwebcloud.com/FASTER/Domains/Parts/PartList/PartListMaster.aspx
-// @match        https://*.fasterwebcloud.com/FASTER/Domains/Parts/Search/Default.aspx
-// @match        https://*.fasterwebcloud.com/FASTER/Domains/Vendors/Search/Default.aspx
+// @match        https://*.fasterwebcloud.com/FASTER/Domains/Assets/Search/Default.aspx*
+// @match        https://*.fasterwebcloud.com/FASTER/Domains/Maintenance/ManageTask/Search/Default.aspx*
+// @match        https://*.fasterwebcloud.com/FASTER/Domains/Maintenance/ManageTask/TaskListView.aspx*
+// @match        https://*.fasterwebcloud.com/FASTER/Domains/Parts/PartList/Default.aspx*
+// @match        https://*.fasterwebcloud.com/FASTER/Domains/Parts/PartList/PartListMaster.aspx*
+// @match        https://*.fasterwebcloud.com/FASTER/Domains/Parts/Search/Default.aspx*
+// @match        https://*.fasterwebcloud.com/FASTER/Domains/Vendors/Search/Default.aspx*
 // @grant        GM_addStyle
-// @version      1.1.0
+// @version      1.1.1
 // @author       The Corporation of the City of Sault Ste. Marie
 // @description  Appends IDs to selected links in FASTER Web to make them easier to differentiate.
 // @run-at       document-end
